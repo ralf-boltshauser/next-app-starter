@@ -1,5 +1,6 @@
 # Next App Starter
-Clone with: `npx create-next-app -e 
+Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ralf-boltshauser/next-app-starter`
+
 ## Getting Started
 
 
