@@ -9,7 +9,7 @@ export default function ErrorPage() {
     <div>
       <h2 className="text-2xl">Etwas ist schief gegangen!</h2>
       <p className="my-3">{errorMessage}</p>
-      <Button variant="gradient" onClick={() => window.history.back()}>
+      <Button variant="outline" onClick={() => window.history.back()}>
         Zurück
       </Button>
     </div>

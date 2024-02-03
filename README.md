@@ -7,6 +7,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 - [ ] Deployment
   - [ ] Change the NEXTAUTH_SECRET in .env to a random string `openssl rand -base64 32`
   - [ ] Create Google Cloud Project
+  - [ ] Create a new OAuth client type web app
   - [ ] Add your domain to the google cloud project
   - [ ] Add the callback url for google provider to domain/api/auth/callback/google
   - [ ] Add a localhost:3000 callback url for development
