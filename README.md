@@ -1,3 +1,5 @@
+# Next App Starter
+Clone with: `npx create-next-app -e 
 ## Getting Started
 
 
