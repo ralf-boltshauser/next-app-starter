@@ -41,6 +41,11 @@ export default function MenuComponent() {
       requiresSignIn: SignInStatus.SignedIn,
     },
     {
+      name: "Profile",
+      href: "/profile",
+      requiresSignIn: SignInStatus.SignedIn,
+    },
+    {
       name: "Sign In",
       href: "/auth/sign-in",
       requiresSignIn: SignInStatus.SignedOut,

@@ -1,28 +1,27 @@
 ## Getting Started
 
-- [ ] (Create Google Cloud Project)
-- [ ] Add your domain to the google cloud project
-- [ ] 
 
-First, run the development server:
+- [ ] Deployment
+  - [ ] Change the NEXTAUTH_SECRET
+  - [ ] Create Google Cloud Project
+  - [ ] Add your domain to the google cloud project
+  - [ ] Add the callback url for google provider to domain/api/auth/callback/google
+  - [ ] Add a localhost:3000 callback url for development
+  - [ ] Get a database (maybe in vercel, planetscale or just deploy a docker container with a database)
+  - [ ] Make a git repo
+  - [ ] Deploy the app on vercel
+  - [ ] Add the domain to the vercel project
+  - [ ] Set the NEXTAUTH_URL to domain without any path
+  - [ ] Set the DATABASE_URL to the database url
+  - [ ] (Adjust the database type in schema.prisma to the database type)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [ ] Development
+  - [ ] adjust the app name in the navbar
+  - [ ] Visit shadcn/ui for components / theming
+  - [ ] Extend the schema.prisma and run `npx prisma generate` to generate the types and `npx prisma migrate dev` to create the database tables. DON'T FORGET TO APPLY MIGRATIONS TO PROD
+  - [ ] Implement your functionality in the /app route, otherwise change the callback in auth/sign-in/page.tsx route.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
+## Learn More about Next.js
 
 To learn more about Next.js, take a look at the following resources:
 
