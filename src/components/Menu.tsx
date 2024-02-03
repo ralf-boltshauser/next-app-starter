@@ -49,6 +49,7 @@ export default function MenuComponent() {
       name: "Sign In",
       href: "/auth/sign-in",
       requiresSignIn: SignInStatus.SignedOut,
+      variant: "default",
     },
     {
       name: "Sign Out",
@@ -56,7 +57,13 @@ export default function MenuComponent() {
       action: handleSignout,
       requiresSignIn: SignInStatus.SignedIn,
     },
-  ];
+  ] as {
+    name: string;
+    href?: string;
+    action?: () => void;
+    requiresSignIn: SignInStatus;
+    variant?: "default" | "outline";
+  }[];
 
   const { data: session, status } = useSession();
 
@@ -84,12 +91,13 @@ export default function MenuComponent() {
                 {item.name}
               </Button>
             );
+          } else if (item.href) {
+            return (
+              <Link key={item.name} href={item.href}>
+                <Button variant={item.variant ?? "outline"}>{item.name}</Button>
+              </Link>
+            );
           }
-          return (
-            <Link key={item.name} href={item.href}>
-              <Button variant={"outline"}>{item.name}</Button>
-            </Link>
-          );
         })}
       </div>
       <div className="block md:hidden">
@@ -110,7 +118,7 @@ export default function MenuComponent() {
               }
               return (
                 <DropdownMenuItem key={item.name} asChild>
-                  <Link href={item.href}>{item.name}</Link>
+                  <Link href={item.href ?? "/"}>{item.name}</Link>
                 </DropdownMenuItem>
               );
             })}
