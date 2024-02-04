@@ -39,6 +39,8 @@ export const authOptions: NextAuthOptions = {
           where: { email: user.email! },
         });
 
+        let userId = dbUser?.id;
+
         if (dbUser && dbUser.password) {
           // user already exists validate password
           const match = await bcrypt.compare(user.password, dbUser.password);
@@ -71,12 +73,13 @@ export const authOptions: NextAuthOptions = {
               password: hash,
             },
           });
+          userId = userResponse.id;
         } else {
           throw new Error("Something went wrong!");
         }
 
         // TODO if you need to add more properties to the token you can do it here
-        // user.organizationType = organization.type;
+        user.dbId = userId;
         return user;
       },
     }),
@@ -102,7 +105,7 @@ export const authOptions: NextAuthOptions = {
         });
 
         // TODO if you need to add more properties to the token you can do it here
-        // user.organizationType = organization.type;
+        user.dbId = userResponse.id;
       }
 
       return true;
@@ -112,7 +115,7 @@ export const authOptions: NextAuthOptions = {
       if (account) {
         token.accessToken = account.access_token;
         // TODO if you need to add more properties to the token you can do it here
-        // token.organizationType = user?.organizationType;
+        token.dbId = user?.dbId;
       }
 
       return token;
@@ -122,7 +125,7 @@ export const authOptions: NextAuthOptions = {
       session.accessToken = token.accessToken;
       if (session?.user) {
         // TODO if you need to add more properties to the token you can do it here
-        session.user.organizationType = token.organizationType;
+        session.user.dbId = token.dbId;
       }
       return session;
     },
