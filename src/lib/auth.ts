@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/client";
 import bcrypt from "bcryptjs";
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -131,3 +131,16 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
+
+export async function getSessionUser() {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    throw new Error("No session found");
+  }
+
+  if (!session.user) {
+    throw new Error("No user found in session");
+  }
+
+  return session.user;
+}
