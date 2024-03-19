@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import NextAuthProvider from "@/components/auth/NextAuthProvider";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
