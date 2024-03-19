@@ -1,6 +1,11 @@
 # Next App Starter
 Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ralf-boltshauser/next-app-starter`
 
+## Todo
+- [ ] add a error page
+- [ ] not found page
+- [ ] loading etc.
+
 ## Getting Started
 
 
