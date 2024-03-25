@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import * as z from "zod";
+import * as z from 'zod';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -11,29 +11,29 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { User } from "@prisma/client";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { updateProfile } from "./actions";
-import { profileFormSchema } from "./profileSchema";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { User } from '@prisma/client';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import { updateProfile } from './actions';
+import { profileFormSchema } from './profileSchema';
 
 export function ProfileForm({ user }: { user: User }) {
   const form = useForm({
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
-      name: user.name ?? "",
+      name: user.name ?? '',
     },
   });
 
   async function onSubmit(values: z.infer<typeof profileFormSchema>) {
     const res = await updateProfile(values);
     if (res.error.length > 0) {
-      toast.error(res.error.map((e) => e.message).join("\n"));
+      toast.error(res.error.map((e) => e.message).join('\n'));
     } else {
-      toast.success("Profil erfolgreich aktualisiert.");
+      toast.success('Profil erfolgreich aktualisiert.');
     }
   }
 

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import MenuComponent from "./Menu";
+import Link from 'next/link';
+import MenuComponent from './Menu';
 
 export default function Navbar() {
   return (

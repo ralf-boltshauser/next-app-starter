@@ -1,10 +1,10 @@
-import { authOptions } from "@/lib/auth";
-import { getServerSession } from "next-auth";
-import { unstable_noStore } from "next/cache";
-import DeleteAccountComponent from "./DeleteAccountComponent";
+import { authOptions } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
+import { unstable_noStore } from 'next/cache';
+import DeleteAccountComponent from './DeleteAccountComponent';
 
-import { prisma } from "@/lib/client";
-import { ProfileForm } from "./ProfileFormComponent";
+import { prisma } from '@/lib/client';
+import { ProfileForm } from './ProfileFormComponent';
 
 export default async function ProfileComponent() {
   unstable_noStore();

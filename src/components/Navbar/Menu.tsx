@@ -1,9 +1,9 @@
-import { authOptions } from "@/lib/auth";
-import { getServerSession } from "next-auth";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import MobileMenu from "./MobileMenu";
-import SignOutButton from "./SignOutButton";
+import { authOptions } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
+import Link from 'next/link';
+import { Button } from '../ui/button';
+import MobileMenu from './MobileMenu';
+import SignOutButton from './SignOutButton';
 
 export enum SignInStatus {
   SignedIn,
@@ -16,46 +16,46 @@ export interface FilteredMenuItem {
   href?: string;
   action?: string;
   requiresSignIn: SignInStatus;
-  variant?: "default" | "outline";
+  variant?: 'default' | 'outline';
 }
 
 export default async function MenuComponent() {
   const menuItems = [
     {
-      name: "Home",
-      href: "/",
+      name: 'Home',
+      href: '/',
       requiresSignIn: SignInStatus.SignedOut,
     },
     {
-      name: "About",
-      href: "/about",
+      name: 'About',
+      href: '/about',
       requiresSignIn: SignInStatus.SignedOut,
     },
     {
-      name: "Contact",
-      href: "/contact",
+      name: 'Contact',
+      href: '/contact',
       requiresSignIn: SignInStatus.SignedOut,
     },
     {
-      name: "App",
-      href: "/app",
+      name: 'App',
+      href: '/app',
       requiresSignIn: SignInStatus.SignedIn,
     },
     {
-      name: "Profile",
-      href: "/profile",
+      name: 'Profile',
+      href: '/profile',
       requiresSignIn: SignInStatus.SignedIn,
     },
     {
-      name: "Sign In",
-      href: "/auth/sign-in",
+      name: 'Sign In',
+      href: '/auth/sign-in',
       requiresSignIn: SignInStatus.SignedOut,
-      variant: "default",
+      variant: 'default',
     },
     {
-      name: "Sign Out",
-      href: "/auth/sign-out",
-      action: "signOut",
+      name: 'Sign Out',
+      href: '/auth/sign-out',
+      action: 'signOut',
       requiresSignIn: SignInStatus.SignedIn,
     },
   ] as FilteredMenuItem[];
@@ -77,15 +77,15 @@ export default async function MenuComponent() {
 
   return (
     <>
-      {" "}
+      {' '}
       <div className="space-x-5 hidden md:flex">
         {filteredMenuItems.map((item, index) => {
-          if (item.action === "signOut") {
+          if (item.action === 'signOut') {
             return <SignOutButton key={item.name}>{item.name}</SignOutButton>;
           } else if (item.href) {
             return (
               <Link key={item.name} href={item.href}>
-                <Button variant={item.variant ?? "outline"}>{item.name}</Button>
+                <Button variant={item.variant ?? 'outline'}>{item.name}</Button>
               </Link>
             );
           }

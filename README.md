@@ -1,7 +1,9 @@
 # Next App Starter
+
 Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ralf-boltshauser/next-app-starter`
 
 ## Todo
+
 - [ ] add a error page
 - [ ] not found page
 - [ ] loading etc.
@@ -12,13 +14,14 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
     - [x] setup playwright
     - [ ] implement some default tests
   - [ ] storyboard
-  - [ ] husky
-    - [ ] add playwright
+  - [x] husky
+    - [x] add playwright
   - [ ] lint-staged
 
 ## Getting Started
 
 - [ ] Deployment
+
   - [ ] Change the NEXTAUTH_SECRET in .env to a random string `openssl rand -base64 32`
   - [ ] Create Google Cloud Project
   - [ ] Create a new OAuth client type web app
@@ -34,18 +37,18 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [ ] (Adjust the database type in schema.prisma to the database type)
 
 - [ ] Development
+
   - [ ] adjust the app name in the navbar
   - [ ] Visit shadcn/ui for components / theming
   - [ ] Extend the schema.prisma and run `npx prisma generate` to generate the types and `npx prisma migrate dev` to create the database tables. DON'T FORGET TO APPLY MIGRATIONS TO PROD
   - [ ] Implement your functionality in the /app route, otherwise change the callback in auth/sign-in/page.tsx route.
 
-
 - [ ] Testing
+
   - [ ] Use `npx playwright codegen` to generate tests
 
 - [ ] CI/CD
   - [ ] Setup playwright tests on github actions
-
 
 ## Learn More about Next.js
 

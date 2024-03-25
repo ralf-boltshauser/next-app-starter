@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -7,8 +7,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { deleteAccount } from "./actions";
+} from '@/components/ui/dialog';
+import { deleteAccount } from './actions';
 
 export default function DeleteAccountComponent() {
   return (
@@ -25,7 +25,7 @@ export default function DeleteAccountComponent() {
         </DialogHeader>
         <DialogFooter className="justify-center w-full items-center sm:justify-start">
           <form className="my-3" action={deleteAccount}>
-            <Button variant={"destructive"} type="submit">
+            <Button variant={'destructive'} type="submit">
               Delete account permanently
             </Button>
           </form>
