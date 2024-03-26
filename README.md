@@ -8,15 +8,21 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 - [ ] not found page
 - [ ] loading etc.
 - [ ] tooling
-  - [ ] posthog
-  - [ ] eslint prettier
+  - [x] eslint prettier
+  - [x] husky
+    - [x] add playwright
+  - [x] lint-staged
+  - [x] vs code extensions
+    - [x] prettier
+    - [x] prisma
+    - [x] ...
+  - [ ] storybook
+    - [x] setup story book
+    - [ ] add stories for my custom components
   - [ ] playwright
     - [x] setup playwright
     - [ ] implement some default tests
-  - [ ] storyboard
-  - [x] husky
-    - [x] add playwright
-  - [ ] lint-staged
+  - [ ] posthog
 
 ## Getting Started
 
@@ -42,6 +48,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [ ] Visit shadcn/ui for components / theming
   - [ ] Extend the schema.prisma and run `npx prisma generate` to generate the types and `npx prisma migrate dev` to create the database tables. DON'T FORGET TO APPLY MIGRATIONS TO PROD
   - [ ] Implement your functionality in the /app route, otherwise change the callback in auth/sign-in/page.tsx route.
+  - [ ] use storybook: `npm run storybook`
 
 - [ ] Testing
 
