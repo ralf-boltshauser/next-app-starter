@@ -1,7 +1,12 @@
-export default function Home() {
+import Navbar from '@/components/Navbar/Navbar';
+
+export const dynamic = 'force-dynamic';
+
+export default async function LandingPage() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <>
+      <Navbar />
+      <h1>Some fancy full screen Landing page with no margins</h1>
+    </>
   );
 }

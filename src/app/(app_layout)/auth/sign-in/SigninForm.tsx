@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -12,6 +11,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/passwordInput';
+import { SubmitButton } from '@/components/ui/submit-button';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
@@ -19,10 +19,10 @@ import { toast } from 'sonner';
 import * as z from 'zod';
 export const signUpSchema = z.object({
   email: z.string().email({
-    message: 'Bitte gib eine gültige E-Mail Adresse ein.',
+    message: 'Please enter a valid email address.',
   }),
   password: z.string().min(8, {
-    message: 'Das Passwort muss mindestens 8 Zeichen lang sein.',
+    message: 'The password must be at least 8 characters long.',
   }),
 });
 
@@ -80,7 +80,9 @@ export function SignInForm({ callbackUrl }: { callbackUrl: string }) {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <SubmitButton isPending={form.formState.isSubmitting}>
+          Sign In
+        </SubmitButton>
       </form>
     </Form>
   );

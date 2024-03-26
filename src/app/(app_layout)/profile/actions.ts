@@ -4,7 +4,6 @@ import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/client';
 import { getServerSession } from 'next-auth';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { profileFormSchema } from './profileSchema';
 
@@ -48,5 +47,4 @@ async function getUserId() {
 export async function deleteAccount() {
   const userId = await getUserId();
   await prisma.user.delete({ where: { id: userId } });
-  redirect('/api/auth/signout');
 }

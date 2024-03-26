@@ -1,12 +1,12 @@
 'use client';
-import { Button } from '@/components/ui/button';
+import { AnimatedButton } from '@/components/ui/animated-button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { SignInForm } from './SigninForm';
 import { SignUpForm } from './SignupForm';
-export default function SignIn() {
+export default function SignInPage() {
   const searchParams = useSearchParams();
 
   const callbackUrl = searchParams.get('callbackUrl') || '/app';
@@ -20,7 +20,6 @@ export default function SignIn() {
       toast.error(res.error);
     }
   };
-
   return (
     <Tabs defaultValue={'sign-in-with-provider'}>
       <TabsList className="grid w-full grid-cols-3">
@@ -33,9 +32,12 @@ export default function SignIn() {
         className="flex flex-col space-y-2"
       >
         <h2 className="text-xl">Sign in with Google!</h2>
-        <Button onClick={() => handleSignIn('google')}>
+        <AnimatedButton
+          className="w-fit"
+          onClick={() => handleSignIn('google')}
+        >
           Sign in with Google
-        </Button>
+        </AnimatedButton>
       </TabsContent>
       <TabsContent value="sign-in-with-credentials">
         <SignInForm callbackUrl={callbackUrl} />

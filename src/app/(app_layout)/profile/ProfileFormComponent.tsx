@@ -2,7 +2,6 @@
 
 import * as z from 'zod';
 
-import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -13,6 +12,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { SubmitButton } from '@/components/ui/submit-button';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { User } from '@prisma/client';
 import { useForm } from 'react-hook-form';
@@ -33,7 +33,7 @@ export function ProfileForm({ user }: { user: User }) {
     if (res.error.length > 0) {
       toast.error(res.error.map((e) => e.message).join('\n'));
     } else {
-      toast.success('Profil erfolgreich aktualisiert.');
+      toast.success('Profile has been updated successfully!');
     }
   }
 
@@ -53,13 +53,17 @@ export function ProfileForm({ user }: { user: User }) {
                   value={field.value!}
                 />
               </FormControl>
-              <FormDescription>First and Last Name</FormDescription>
+              <FormDescription>
+                Please enter your first and last name
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button type="submit">Update</Button>
+        <SubmitButton isPending={form.formState.isSubmitting}>
+          Save
+        </SubmitButton>
       </form>
     </Form>
   );

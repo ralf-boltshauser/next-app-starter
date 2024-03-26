@@ -1,3 +1,4 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -8,9 +9,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { signOut } from 'next-auth/react';
 import { deleteAccount } from './actions';
 
 export default function DeleteAccountComponent() {
+  const handleDeleteAccount = async () => {
+    signOut();
+    deleteAccount();
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,11 +31,9 @@ export default function DeleteAccountComponent() {
           <DialogDescription>This action can not be undone!</DialogDescription>
         </DialogHeader>
         <DialogFooter className="justify-center w-full items-center sm:justify-start">
-          <form className="my-3" action={deleteAccount}>
-            <Button variant={'destructive'} type="submit">
-              Delete account permanently
-            </Button>
-          </form>
+          <Button variant={'destructive'} onClick={handleDeleteAccount}>
+            Delete account permanently
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import MenuComponent from './Menu';
 
-export default function Navbar() {
+export default async function Navbar() {
   return (
     <div className="w-full shadow-md">
       <nav className="flex items-center justify-between p-5 mx-auto max-w-6xl">

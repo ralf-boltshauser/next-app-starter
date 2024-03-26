@@ -1,6 +1,5 @@
 import 'next-auth';
 import { DefaultSession } from 'next-auth';
-
 declare module 'next-auth' {
   interface Session {
     user: {
@@ -8,7 +7,9 @@ declare module 'next-auth' {
     } & DefaultSession['user'];
   }
 
-  interface User {
+  interface User extends DefaultSession['user'] {
     dbId?: number; // Use the appropriate type for your dbId
   }
 }
+
+export type NextAuthUser = User;

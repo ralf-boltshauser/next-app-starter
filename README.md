@@ -16,13 +16,13 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
     - [x] prettier
     - [x] prisma
     - [x] ...
+  - [x] posthog
   - [ ] storybook
     - [x] setup story book
     - [ ] add stories for my custom components
   - [ ] playwright
     - [x] setup playwright
     - [ ] implement some default tests
-  - [x] posthog
 - [ ] Clean up code
 - [ ] Stripe
 - [ ] default landing page
