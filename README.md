@@ -22,7 +22,11 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [ ] playwright
     - [x] setup playwright
     - [ ] implement some default tests
-  - [ ] posthog
+  - [x] posthog
+- [ ] Clean up code
+- [ ] Stripe
+- [ ] default landing page
+- [ ] check out horizon boilerplate what they already have
 
 ## Getting Started
 
@@ -41,6 +45,10 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [ ] Set the NEXTAUTH_URL to domain without any path
   - [ ] Set the DATABASE_URL to the database url
   - [ ] (Adjust the database type in schema.prisma to the database type)
+  - [ ] PostHog
+    - [ ] If you don't want PostHog, remove the providers from root layout and delete the files from components/posthog
+    - [ ] Add a PostHog project, add the API key to the .env file and enable session replay!
+    - [ ] Add A/B tests https://posthog.com/tutorials/nextjs-ab-tests
 
 - [ ] Development
 
