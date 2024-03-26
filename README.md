@@ -1,15 +1,37 @@
 # Next App Starter
+
 Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ralf-boltshauser/next-app-starter`
 
 ## Todo
+
 - [ ] add a error page
 - [ ] not found page
 - [ ] loading etc.
+- [ ] tooling
+  - [x] eslint prettier
+  - [x] husky
+    - [x] add playwright
+  - [x] lint-staged
+  - [x] vs code extensions
+    - [x] prettier
+    - [x] prisma
+    - [x] ...
+  - [x] posthog
+  - [x] storybook
+    - [x] setup story book
+    - [x] add stories for my custom components
+  - [ ] playwright
+    - [x] setup playwright
+    - [ ] implement some default tests
+- [x] Clean up code
+- [ ] Stripe
+- [ ] default landing page
+- [ ] check out horizon boilerplate what they already have
 
 ## Getting Started
 
-
 - [ ] Deployment
+
   - [ ] Change the NEXTAUTH_SECRET in .env to a random string `openssl rand -base64 32`
   - [ ] Create Google Cloud Project
   - [ ] Create a new OAuth client type web app
@@ -23,12 +45,26 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [ ] Set the NEXTAUTH_URL to domain without any path
   - [ ] Set the DATABASE_URL to the database url
   - [ ] (Adjust the database type in schema.prisma to the database type)
+  - [ ] PostHog
+    - [ ] If you don't want PostHog, remove the providers from root layout and delete the files from components/posthog
+    - [ ] Add a PostHog project, add the API key to the .env file and enable session replay!
+    - [ ] Add A/B tests https://posthog.com/tutorials/nextjs-ab-tests
 
 - [ ] Development
+
   - [ ] adjust the app name in the navbar
   - [ ] Visit shadcn/ui for components / theming
   - [ ] Extend the schema.prisma and run `npx prisma generate` to generate the types and `npx prisma migrate dev` to create the database tables. DON'T FORGET TO APPLY MIGRATIONS TO PROD
   - [ ] Implement your functionality in the /app route, otherwise change the callback in auth/sign-in/page.tsx route.
+  - [ ] use storybook: `npm run storybook`
+
+- [ ] Testing
+
+  - [ ] Use `npx playwright codegen` to generate tests
+  - [ ] Install browsers etc `npx playwright install`
+
+- [ ] CI/CD
+  - [ ] Setup playwright tests on github actions
 
 ## Learn More about Next.js
 
