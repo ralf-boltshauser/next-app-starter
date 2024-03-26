@@ -7,7 +7,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 - [ ] add a error page
 - [ ] not found page
 - [ ] loading etc.
-- [ ] tooling
+- [x] tooling
   - [x] eslint prettier
   - [x] husky
     - [x] add playwright
@@ -20,9 +20,9 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [x] storybook
     - [x] setup story book
     - [x] add stories for my custom components
-  - [ ] playwright
+  - [x] playwright
     - [x] setup playwright
-    - [ ] implement some default tests
+    - [x] implement some default tests
 - [x] Clean up code
 - [ ] Stripe
 - [ ] default landing page
