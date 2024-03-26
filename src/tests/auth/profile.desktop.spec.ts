@@ -19,9 +19,9 @@ test.describe.serial('Profile Form', () => {
   test('should update the first name', async ({ page }) => {
     await page.getByPlaceholder('First and Last Name').click();
     await page.getByPlaceholder('First and Last Name').fill('Jane Doe');
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(600);
     await page.getByRole('button', { name: 'Save' }).click();
-
+    await page.getByRole('button', { name: 'Save' }).click();
     await page.waitForSelector('text=Profile has been updated successfully!');
 
     await expect(

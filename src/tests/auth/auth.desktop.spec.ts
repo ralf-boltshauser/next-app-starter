@@ -78,8 +78,8 @@ test.describe('Sign up / Sign in', () => {
     await expect(page.getByRole('button', { name: 'Sign Out' })).toBeVisible();
 
     // Sign out
-    await page.getByRole('button', { name: 'Sign Out' }).click();
     await page.waitForTimeout(600);
+    await page.getByRole('button', { name: 'Sign Out' }).click();
     await expect(page).toHaveURL('http://localhost:3000');
   });
 
