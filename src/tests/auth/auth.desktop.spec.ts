@@ -61,7 +61,7 @@ test.describe('Sign up Form Validation', () => {
   });
 });
 
-test.describe.serial('Sign up / Sign in', () => {
+test.describe('Sign up / Sign in', () => {
   test('should create an account and sign out', async ({ page }) => {
     await page.goto('http://localhost:3000/auth/sign-in');
 
@@ -79,7 +79,7 @@ test.describe.serial('Sign up / Sign in', () => {
 
     // Sign out
     await page.getByRole('button', { name: 'Sign Out' }).click();
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(600);
     await expect(page).toHaveURL('http://localhost:3000');
   });
 

@@ -41,7 +41,7 @@ test.describe.serial('Profile Form', () => {
 
   test('delete account', async ({ page }) => {
     await page.getByRole('button', { name: 'Delete Account' }).isVisible();
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(500);
     await page.getByRole('button', { name: 'Delete Account' }).click();
     await page.waitForSelector(
       'text=Are you sure you want to delete your account?'
