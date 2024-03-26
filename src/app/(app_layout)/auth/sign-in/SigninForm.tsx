@@ -57,9 +57,9 @@ export function SignInForm({ callbackUrl }: { callbackUrl: string }) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>E-Mail</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="E-Mail" {...field} />
+                <Input placeholder="Email" {...field} />
               </FormControl>
               <FormDescription>Enter your e-mail</FormDescription>
               <FormMessage />

@@ -1,11 +1,10 @@
 import { prisma } from '@/lib/client';
 import { User as PrismaUser } from '@prisma/client';
 import bcrypt from 'bcryptjs';
-import { getServerSession, NextAuthOptions } from 'next-auth';
+import { getServerSession, NextAuthOptions, User } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { redirect } from 'next/navigation';
-import { NextAuthUser } from './next-auth';
 
 export const config = {
   maxDuration: 300,
@@ -141,23 +140,23 @@ async function upsertUser(user: any, password: string | undefined) {
   return userResponse;
 }
 
-export async function getSessionUser(
-  dbUser: boolean
-): Promise<NextAuthUser | PrismaUser> {
+export async function getSessionUser(): Promise<User & { email: string }> {
   const session = await getServerSession(authOptions);
   if (!session || !session.user || !session.user.email) {
     redirect('/auth/sign-in');
   }
 
-  if (dbUser) {
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-    });
-    if (!user) {
-      redirect('/auth/sign-in');
-    }
-    return user;
-  }
+  return session.user as User & { email: string };
+}
 
-  return session.user;
+export async function getDatabaseUser(): Promise<PrismaUser> {
+  const sessionUser = await getSessionUser();
+
+  const user = await prisma.user.findUnique({
+    where: { email: sessionUser.email },
+  });
+  if (!user) {
+    redirect('/auth/sign-in');
+  }
+  return user as PrismaUser;
 }

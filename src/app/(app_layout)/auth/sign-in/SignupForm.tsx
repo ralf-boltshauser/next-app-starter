@@ -82,9 +82,9 @@ export function SignUpForm({ callbackUrl }: { callbackUrl: string }) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>E-Mail</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="E-Mail" {...field} />
+                <Input placeholder="Email" {...field} />
               </FormControl>
               <FormDescription>Please enter your e-mail</FormDescription>
               <FormMessage />
@@ -112,7 +112,7 @@ export function SignUpForm({ callbackUrl }: { callbackUrl: string }) {
             <FormItem>
               <FormLabel>Password Confirmation</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="Password" {...field} />
+                <PasswordInput placeholder="Password Confirmation" {...field} />
               </FormControl>
               <FormDescription>Please confirm your password</FormDescription>
               <FormMessage />

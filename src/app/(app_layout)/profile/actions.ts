@@ -1,8 +1,7 @@
 'use server';
 
-import { authOptions } from '@/lib/auth';
+import { getSessionUser } from '@/lib/auth';
 import { prisma } from '@/lib/client';
-import { getServerSession } from 'next-auth';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import { profileFormSchema } from './profileSchema';
@@ -15,10 +14,10 @@ export async function updateProfile(values: z.infer<typeof profileFormSchema>) {
     };
   }
 
-  const userId = await getUserId();
+  const user = await getSessionUser();
 
   await prisma.user.update({
-    where: { id: userId },
+    where: { id: user.dbId },
     data: {
       name: payload.data.name,
     },
@@ -30,21 +29,7 @@ export async function updateProfile(values: z.infer<typeof profileFormSchema>) {
   };
 }
 
-async function getUserId() {
-  const session = await getServerSession(authOptions);
-  if (!session || !session.user || !session.user.email)
-    throw new Error('Not authenticated');
-
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-  });
-  if (!user) throw new Error('User not found');
-  console.log(user);
-
-  return user.id;
-}
-
 export async function deleteAccount() {
-  const userId = await getUserId();
-  await prisma.user.delete({ where: { id: userId } });
+  const user = await getSessionUser();
+  await prisma.user.delete({ where: { id: user.dbId } });
 }

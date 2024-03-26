@@ -4,8 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
-import { SignInForm } from './SigninForm';
-import { SignUpForm } from './SignupForm';
+import { SignInForm } from './SignInForm';
+import { SignUpForm } from './SignUpForm';
 export default function SignInPage() {
   const searchParams = useSearchParams();
 

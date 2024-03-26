@@ -1,10 +1,11 @@
-import { getSessionUser } from '@/lib/auth';
+import { getDatabaseUser } from '@/lib/auth';
 import DeleteAccountComponent from './DeleteAccountComponent';
 
 import { ProfileForm } from './ProfileFormComponent';
 
 export default async function ProfilePage() {
-  const user = await getSessionUser(true);
+  const user = await getDatabaseUser();
+
   return (
     <>
       <div className="flex justify-between items-center">

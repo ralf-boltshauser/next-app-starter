@@ -14,21 +14,24 @@ import { deleteAccount } from './actions';
 
 export default function DeleteAccountComponent() {
   const handleDeleteAccount = async () => {
-    signOut();
-    deleteAccount();
+    await signOut();
+    await deleteAccount();
   };
 
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button className="my-3" variant="destructive">
-          Delete account
+          Delete Account
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Delete account</DialogTitle>
-          <DialogDescription>This action can not be undone!</DialogDescription>
+          <DialogTitle>Delete Account</DialogTitle>
+          <DialogDescription>
+            Are you sure you want to delete your account? This action can not be
+            undone!
+          </DialogDescription>
         </DialogHeader>
         <DialogFooter className="justify-center w-full items-center sm:justify-start">
           <Button variant={'destructive'} onClick={handleDeleteAccount}>
