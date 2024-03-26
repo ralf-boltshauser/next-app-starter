@@ -20,6 +20,20 @@ const PostHogPageView = dynamic(
 export const metadata: Metadata = {
   title: 'Ralfs App Starter',
   description: 'Ralfs NextJs App Starter',
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon',
+      url: '/icons/apple-touch-icon.png',
+    },
+    {
+      rel: 'manifest',
+      url: '/icons/site.webmanifest',
+    },
+  ],
 };
 
 export default async function RootLayout({
