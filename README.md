@@ -17,13 +17,13 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
     - [x] prisma
     - [x] ...
   - [x] posthog
-  - [ ] storybook
+  - [x] storybook
     - [x] setup story book
-    - [ ] add stories for my custom components
+    - [x] add stories for my custom components
   - [ ] playwright
     - [x] setup playwright
     - [ ] implement some default tests
-- [ ] Clean up code
+- [x] Clean up code
 - [ ] Stripe
 - [ ] default landing page
 - [ ] check out horizon boilerplate what they already have

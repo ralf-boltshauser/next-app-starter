@@ -5,7 +5,7 @@ import { Meta } from '@storybook/react';
 import { Button, ButtonProps } from '../components/ui/button';
 
 export default {
-  title: 'UI/MyButton',
+  title: 'UI/Shadcn/Button',
   component: Button,
 } as Meta;
 
