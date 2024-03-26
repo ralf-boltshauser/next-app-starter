@@ -61,6 +61,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 - [ ] Testing
 
   - [ ] Use `npx playwright codegen` to generate tests
+  - [ ] Install browsers etc `npx playwright install`
 
 - [ ] CI/CD
   - [ ] Setup playwright tests on github actions
