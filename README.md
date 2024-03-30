@@ -4,29 +4,13 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 ## Todo
 
-- [x] add a error page
-- [x] not found page
-- [x] loading etc.
-- [x] tooling
-  - [x] eslint prettier
-  - [x] husky
-    - [x] add playwright
-  - [x] lint-staged
-  - [x] vs code extensions
-    - [x] prettier
-    - [x] prisma
-    - [x] ...
-  - [x] posthog
-  - [x] storybook
-    - [x] setup story book
-    - [x] add stories for my custom components
-  - [x] playwright
-    - [x] setup playwright
-    - [x] implement some default tests
-- [x] Clean up code
 - [ ] Stripe
 - [ ] default landing page
 - [ ] check out horizon boilerplate what they already have
+- [ ] internationalization
+- [ ] telemetry
+- [ ] email
+- [ ]
 
 ## Getting Started
 

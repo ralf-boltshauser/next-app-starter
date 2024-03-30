@@ -4,8 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
-import { SignInForm } from './SignInForm';
-import { SignUpForm } from './SignUpForm';
+import { SignInForm } from './SignIn-Form';
+import { SignUpForm } from './SignUp-Form';
 export default function SignInPage() {
   const searchParams = useSearchParams();
 
@@ -20,6 +20,7 @@ export default function SignInPage() {
       toast.error(res.error);
     }
   };
+
   return (
     <Tabs defaultValue={'sign-in-with-provider'}>
       <TabsList className="grid w-full grid-cols-3">

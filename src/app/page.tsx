@@ -1,12 +1,17 @@
+import LandingPageComponent from '@/components/landing/LandingPageComponent';
 import Navbar from '@/components/Navbar/Navbar';
 
 export const dynamic = 'force-dynamic';
 
 export default async function LandingPage() {
   return (
-    <>
+    <main className=" min-h-screen">
       <Navbar />
-      <h1>Some fancy full screen Landing page with no margins</h1>
-    </>
+      <div className=" min-h-screen w-full">
+        <div className="mx-auto max-w-6xl ">
+          <LandingPageComponent />
+        </div>
+      </div>
+    </main>
   );
 }
