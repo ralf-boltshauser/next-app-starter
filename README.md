@@ -6,11 +6,13 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 - [ ] Stripe
 - [ ] default landing page
+  - [ ] create landing page
+  - [ ] make it available for dark mode
 - [ ] check out horizon boilerplate what they already have
 - [ ] internationalization
 - [ ] telemetry
 - [ ] email
-- [ ]
+- [ ] parallel routes for landing vs signed in state
 
 ## Getting Started
 

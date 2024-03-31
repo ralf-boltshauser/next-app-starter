@@ -4,7 +4,7 @@ import { Input } from '../ui/input';
 
 export default function CTASection() {
   return (
-    <div className="dark mx-5 mt-16 rounded-xl bg-secondary p-5 py-8 text-primary md:py-16">
+    <div className="dark mx-5 mt-16 rounded-xl bg-gradient-to-br from-zinc-800 to-zinc-600 p-5 py-8 text-primary md:py-16">
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-4">
         <h2 className="text-4xl font-bold">Ready to get started?</h2>
         <p className="text-lg text-muted-foreground">
@@ -13,7 +13,7 @@ export default function CTASection() {
         <div className="flex gap-2 ">
           <Input
             placeholder="Your email"
-            className="border-2 border-primary"
+            className="min-w-[300px] border-2 border-primary"
             type="email"
           />
           <AnimatedButton className="flex gap-2">
