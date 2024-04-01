@@ -7,7 +7,6 @@ import { z } from 'zod';
 import { profileFormSchema } from './profileSchema';
 
 export async function updateProfile(values: z.infer<typeof profileFormSchema>) {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
   const payload = profileFormSchema.safeParse(values);
   if (!payload.success) {
     return {

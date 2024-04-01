@@ -74,7 +74,7 @@ test.describe('Sign up / Sign in', () => {
       .fill('password');
     await page.getByRole('button', { name: 'Sign Up' }).click();
 
-    await expect(page).toHaveURL('http://localhost:3000/app');
+    await expect(page).toHaveURL('http://localhost:3000/');
     await expect(page.getByRole('button', { name: 'Sign Out' })).toBeVisible();
 
     // Sign out
@@ -94,7 +94,7 @@ test.describe('Sign up / Sign in', () => {
       .getByRole('button', { name: 'Sign In' })
       .click();
 
-    await expect(page).toHaveURL('http://localhost:3000/app');
+    await expect(page).toHaveURL('http://localhost:3000/');
     await expect(page.getByRole('button', { name: 'Sign Out' })).toBeVisible();
   });
 });
