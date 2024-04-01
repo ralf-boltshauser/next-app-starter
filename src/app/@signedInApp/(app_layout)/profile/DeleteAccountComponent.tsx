@@ -14,8 +14,8 @@ import { deleteAccount } from './actions';
 
 export default function DeleteAccountComponent() {
   const handleDeleteAccount = async () => {
-    await signOut();
     await deleteAccount();
+    await signOut();
   };
 
   return (
@@ -33,7 +33,7 @@ export default function DeleteAccountComponent() {
             undone!
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="justify-center w-full items-center sm:justify-start">
+        <DialogFooter className="w-full items-center justify-center sm:justify-start">
           <Button variant={'destructive'} onClick={handleDeleteAccount}>
             Delete account permanently
           </Button>

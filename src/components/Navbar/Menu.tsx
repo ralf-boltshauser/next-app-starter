@@ -38,7 +38,7 @@ export default async function MenuComponent() {
     },
     {
       name: 'App',
-      href: '/app',
+      href: '/',
       requiresSignIn: SignInStatus.SignedIn,
     },
     {
@@ -78,7 +78,7 @@ export default async function MenuComponent() {
   return (
     <>
       {' '}
-      <div className="space-x-5 hidden md:flex">
+      <div className="hidden space-x-5 md:flex">
         {filteredMenuItems.map((item, index) => {
           if (item.action === 'signOut') {
             return <SignOutButton key={item.name}>{item.name}</SignOutButton>;

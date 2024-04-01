@@ -9,7 +9,7 @@ import { SignUpForm } from './SignUp-Form';
 export default function SignInPage() {
   const searchParams = useSearchParams();
 
-  const callbackUrl = searchParams.get('callbackUrl') || '/app';
+  const callbackUrl = searchParams.get('callbackUrl') || '/';
 
   const handleSignIn = async (provider: string) => {
     const res = await signIn(provider, {
