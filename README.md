@@ -22,6 +22,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
     - [ ] where to add price ids etc
     - [ ] needing to add webhook api endpoint
     - [ ] what secrets to put
+    - [ ] explain the flow from tiers to features and how to set them in the typescript tiers and features etc.
 - [ ] default landing page
   - [x] create landing page
   - [ ] make it available for dark mode

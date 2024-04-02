@@ -16,7 +16,12 @@ export default function App() {
       <ConditionalTierRender tier={Tiers.Basic}>
         <div>Basic Tier</div>
       </ConditionalTierRender>
-      <ConditionalTierRender tier={Tiers.Pro}>
+      <ConditionalTierRender
+        tier={Tiers.Pro}
+        fakeChildren={
+          <div>This is way longer than the actual pro tier tag</div>
+        }
+      >
         <div>Pro Tier</div>
       </ConditionalTierRender>
     </div>
