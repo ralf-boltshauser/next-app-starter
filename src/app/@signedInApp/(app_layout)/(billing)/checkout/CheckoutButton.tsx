@@ -18,7 +18,7 @@ export default function CheckoutButton({ priceId }: { priceId: string }) {
     );
 
     const stripe = await stripePromise;
-    const response = await fetch('/api/checkout', {
+    const response = await fetch('/api/stripe/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

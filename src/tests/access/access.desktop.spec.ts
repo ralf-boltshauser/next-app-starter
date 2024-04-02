@@ -38,6 +38,10 @@ test.describe.serial('Buying plans', () => {
 
     await page.getByRole('button', { name: 'Settings' }).click();
     await page.getByRole('link', { name: 'Purchase Plan' }).click();
+    await page
+      .getByRole('button', { name: 'Buy Now' })
+      .first()
+      .scrollIntoViewIfNeeded();
     await page.waitForTimeout(300);
     await page.getByRole('button', { name: 'Buy Now' }).first().click();
 

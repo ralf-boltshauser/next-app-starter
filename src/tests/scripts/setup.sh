@@ -1,6 +1,6 @@
 #!/bin/bash
 # Start stripe listen in the background and redirect its output to a temporary file
-stripe listen -e customer.subscription.updated,customer.subscription.deleted,checkout.session.completed --forward-to http://localhost:3000/api/webhook > temp_stripe_output.txt 2>&1 &
+stripe listen -e customer.subscription.updated,customer.subscription.deleted,checkout.session.completed --forward-to http://localhost:3000/api/stripe/webhook > temp_stripe_output.txt 2>&1 &
 
 # Store the PID of the background process
 STRIPE_PID=$!

@@ -33,7 +33,10 @@ test.describe.serial('Profile Form', () => {
   });
 
   test('should fail with empty first name', async ({ page }) => {
+    await page.getByPlaceholder('First and Last Name').scrollIntoViewIfNeeded();
     await page.getByPlaceholder('First and Last Name').click();
+    await page.waitForTimeout(300);
+    await page.getByPlaceholder('First and Last Name').fill('');
     await page.waitForTimeout(300);
     await page.getByPlaceholder('First and Last Name').fill('');
     await page.waitForTimeout(300);
