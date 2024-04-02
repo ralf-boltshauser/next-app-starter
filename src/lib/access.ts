@@ -1,0 +1,83 @@
+import { getSessionUser } from './auth';
+import { prisma } from './client';
+
+export enum FeatureList {
+  PremiumFeature = 'PremiumFeature',
+}
+
+export enum Tiers {
+  // TODO sync tiers with Database
+  // Be careful, free tier is handled specially in the userHasTier function!
+  Free = 0,
+  Basic = 1,
+  Pro = 2,
+  Enterprise = 3,
+}
+
+export async function canAccessFeature(feature: FeatureList): Promise<boolean> {
+  const user = await getSessionUser();
+
+  const usersWithAccess = await prisma.user.findUnique({
+    where: { id: user.dbId },
+    include: {
+      stripeCustomer: {
+        include: {
+          tier: {
+            include: {
+              features: {
+                where: {
+                  name: feature,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
+  // check if stripe customer is still active
+  if (
+    !usersWithAccess?.stripeCustomer?.tier ||
+    !usersWithAccess?.stripeCustomer?.planActive ||
+    (usersWithAccess?.stripeCustomer?.planExpires &&
+      usersWithAccess?.stripeCustomer?.planExpires < new Date())
+  ) {
+    return false;
+  }
+
+  return (usersWithAccess?.stripeCustomer?.tier.features.length ?? 0) > 0
+    ? true
+    : false;
+}
+
+export async function userHasTier(tier: Tiers): Promise<boolean> {
+  // TODO special handling of free tier
+  if (tier === Tiers.Free) return true;
+  const user = await getSessionUser();
+
+  const usersWithAccess = await prisma.user.findUnique({
+    where: { id: user.dbId },
+    include: {
+      stripeCustomer: {
+        include: {
+          tier: true,
+        },
+      },
+    },
+  });
+
+  // check if stripe customer is still active
+  if (
+    !usersWithAccess?.stripeCustomer?.tier ||
+    !usersWithAccess?.stripeCustomer?.planActive ||
+    (usersWithAccess?.stripeCustomer?.planExpires &&
+      usersWithAccess?.stripeCustomer?.planExpires < new Date())
+  ) {
+    return false;
+  }
+
+  const tierId = usersWithAccess?.stripeCustomer?.tier.id;
+
+  return tierId ? tierId >= tier : false;
+}

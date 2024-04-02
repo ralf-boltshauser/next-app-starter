@@ -5,6 +5,23 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 ## Todo
 
 - [ ] Stripe
+  - [x] payment screen -> plans + checkout
+  - [x] profile settings
+  - [x] access-button which can be passed a feature and if clicked a popup of the pricing page is shown, through modal parallel routes
+  - [x] payment success / failure page
+  - [x] only show manage billing if user has a subscription
+  - [x] try edge cases
+    - [x] upgrade / downgrade plan
+  - [ ] testing
+    - [ ] figure out how to test stripe with playwright
+    - [ ] create subscription
+    - [ ] cancel subscription
+    - [ ] update subscription
+  - [ ] tutorial for readme
+    - [ ] creating product
+    - [ ] where to add price ids etc
+    - [ ] needing to add webhook api endpoint
+    - [ ] what secrets to put
 - [ ] default landing page
   - [x] create landing page
   - [ ] make it available for dark mode
@@ -50,7 +67,10 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [ ] Install browsers etc `npx playwright install`
 
 - [ ] CI/CD
+
   - [ ] Setup playwright tests on github actions
+
+- [ ] Check out all TODO comments in the code (todo tree could help)
 
 ## Learn More about Next.js
 

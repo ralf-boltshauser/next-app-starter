@@ -1,4 +1,5 @@
 'use client';
+import { AnimatedButton } from '@/components/ui/animated-button';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -10,7 +11,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { signOut } from 'next-auth/react';
-import { deleteAccount } from './actions';
+import { deleteAccount } from '../actions';
 
 export default function DeleteAccountComponent() {
   const handleDeleteAccount = async () => {
@@ -21,9 +22,9 @@ export default function DeleteAccountComponent() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="my-3" variant="destructive">
+        <AnimatedButton className="my-3" variant="destructive">
           Delete Account
-        </Button>
+        </AnimatedButton>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

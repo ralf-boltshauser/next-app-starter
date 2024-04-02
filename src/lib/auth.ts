@@ -5,6 +5,7 @@ import { getServerSession, NextAuthOptions, User } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { redirect } from 'next/navigation';
+import { Tiers } from './access';
 
 export const config = {
   maxDuration: 300,
@@ -154,9 +155,36 @@ export async function getDatabaseUser(): Promise<PrismaUser> {
 
   const user = await prisma.user.findUnique({
     where: { email: sessionUser.email },
+    include: {
+      stripeCustomer: true,
+    },
   });
   if (!user) {
     redirect('/auth/sign-in');
   }
   return user as PrismaUser;
+}
+
+export async function getUserTier(): Promise<Tiers | undefined> {
+  const user = await getSessionUser();
+  const res = await prisma.user.findUnique({
+    where: { id: user.dbId },
+    include: {
+      stripeCustomer: {
+        include: {
+          tier: true,
+        },
+      },
+    },
+  });
+
+  const tierId = res?.stripeCustomer?.tier.id;
+
+  if (!tierId) {
+    return undefined;
+  }
+
+  return Object.values(Tiers).find((tier) => tier === tierId) as
+    | Tiers
+    | undefined;
 }

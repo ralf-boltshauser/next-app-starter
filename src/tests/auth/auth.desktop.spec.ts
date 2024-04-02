@@ -61,7 +61,7 @@ test.describe('Sign up Form Validation', () => {
   });
 });
 
-test.describe('Sign up / Sign in', () => {
+test.describe.serial('Sign up / Sign in', () => {
   test('should create an account and sign out', async ({ page }) => {
     await page.goto('http://localhost:3000/auth/sign-in');
 
