@@ -81,12 +81,10 @@ export default async function SettingsPage() {
                     <CardTitle>Manage your Billing.</CardTitle>
                     <CardDescription>
                       Here you can manage your billing!{' '}
-                      {user.stripeCustomer &&
-                        user.stripeCustomer.planActive && (
-                          <span>
-                            Current plan is: {user.stripeCustomer?.tier.name}
-                          </span>
-                        )}
+                      <span>
+                        Current plan is:{' '}
+                        {user.stripeCustomer?.tier.name ?? 'Free'}
+                      </span>
                     </CardDescription>
                   </CardHeader>
                   <CardFooter className="border-t px-6 py-4">

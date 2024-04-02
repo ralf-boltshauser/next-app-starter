@@ -20,7 +20,7 @@ export default function PricingSection({
           Choose the right pricing plan
           <br /> for your and your business
         </h2>
-        <div className="mt-8 flex flex-col items-stretch justify-center gap-4  md:flex-row">
+        <div className="mt-8 flex flex-col items-stretch justify-center gap-4 md:flex-row">
           {plans.map((plan) => (
             <PlanPricing
               key={plan.name}

@@ -22,7 +22,7 @@ model User {
 
 model StripeCustomer {
   id               String    @id @default(uuid())
-  tierId           Int       @unique
+  tierId           Int
   tier             Tier      @relation(fields: [tierId], references: [id])
   stripeCustomerId String    @unique
   subscriptionId   String?   @unique
@@ -35,10 +35,10 @@ model StripeCustomer {
 }
 
 model Tier {
-  id              Int             @id @default(autoincrement())
-  name            String          @unique
-  features        Feature[]
-  stripeCustomers StripeCustomer?
+  id             Int              @id @default(autoincrement())
+  name           String           @unique
+  features       Feature[]
+  StripeCustomer StripeCustomer[]
 }
 
 model Feature {

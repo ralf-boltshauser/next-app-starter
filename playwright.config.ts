@@ -70,4 +70,6 @@ export default defineConfig({
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
   },
+  globalSetup: './src/tests/global-setup.ts',
+  globalTeardown: './src/tests/global-teardown.ts',
 });

@@ -24,6 +24,9 @@ test.describe.serial('Profile Form', () => {
     await page.getByRole('button', { name: 'Save' }).click();
     await page.waitForSelector('text=Profile has been updated successfully!');
 
+    await page
+      .getByRole('heading', { name: "Jane's Settings" })
+      .scrollIntoViewIfNeeded();
     await expect(
       page.getByRole('heading', { name: "Jane's Settings" })
     ).toBeVisible();

@@ -6,11 +6,11 @@ import Stripe from 'stripe';
 import { stripe } from './../../../lib/stripe';
 
 export async function POST(request: NextRequest) {
+  let event;
   try {
     const rawBody = await request.text();
     const signature = request.headers.get('stripe-signature');
 
-    let event;
     try {
       event = stripe.webhooks.constructEvent(
         rawBody,
@@ -21,7 +21,12 @@ export async function POST(request: NextRequest) {
       console.error(`Webhook signature verification failed: ${error.message}`);
       return NextResponse.json({ message: 'Webhook Error' }, { status: 400 });
     }
+  } catch (error: any) {
+    console.error(error);
+    return NextResponse.json({ message: error.message }, { status: 500 });
+  }
 
+  try {
     // Handle the checkout.session.completed event
     if (event.type === 'checkout.session.completed') {
       const session: Stripe.Checkout.Session = event.data.object;
@@ -123,7 +128,10 @@ export async function POST(request: NextRequest) {
 
       // Update the stripe_customers table with the new subscription data
       await prisma.stripeCustomer.upsert({
-        where: { subscriptionId: subscription.id },
+        where: {
+          stripeCustomerId: subscription.customer.toString(),
+          subscriptionId: subscription.id,
+        },
         update: {
           tierId:
             plans.find((plan) =>
@@ -179,6 +187,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: 'success' });
   } catch (error: any) {
+    console.error(event.type);
     console.error(error);
     return NextResponse.json({ message: error.message }, { status: 500 });
   }

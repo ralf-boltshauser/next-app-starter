@@ -12,11 +12,11 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
   - [x] only show manage billing if user has a subscription
   - [x] try edge cases
     - [x] upgrade / downgrade plan
-  - [ ] testing
-    - [ ] figure out how to test stripe with playwright
-    - [ ] create subscription
-    - [ ] cancel subscription
-    - [ ] update subscription
+  - [x] testing
+    - [x] figure out how to test stripe with playwright
+    - [x] create subscription
+    - [x] cancel subscription
+    - [x] update subscription
   - [ ] tutorial for readme
     - [ ] creating product
     - [ ] where to add price ids etc
