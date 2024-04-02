@@ -85,7 +85,14 @@ export async function userHasTier(tier: Tiers): Promise<boolean> {
 export async function getRequiredTier(feature: FeatureList): Promise<Tiers> {
   const resFeature = await prisma.feature.findUnique({
     where: { name: feature.toString() },
+    include: {
+      tiers: true,
+    },
   });
 
-  return resFeature?.id ?? Tiers.Free;
+  const lowestTierId = resFeature?.tiers.reduce((prev, curr) =>
+    prev.id < curr.id ? prev : curr
+  )?.id;
+
+  return lowestTierId ?? Tiers.Free;
 }
