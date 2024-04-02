@@ -11,8 +11,7 @@ test.beforeEach(async ({ page }) => {
     .getByPlaceholder('Password Confirmation', { exact: true })
     .fill('password');
   await page.getByRole('button', { name: 'Sign Up' }).click();
-
-  await page.getByRole('button', { name: 'Profile' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
 });
 
 test.describe.serial('Profile Form', () => {
@@ -24,13 +23,19 @@ test.describe.serial('Profile Form', () => {
     await page.getByRole('button', { name: 'Save' }).click();
     await page.waitForSelector('text=Profile has been updated successfully!');
 
+    await page
+      .getByRole('heading', { name: "Jane's Settings" })
+      .scrollIntoViewIfNeeded();
     await expect(
-      page.getByRole('heading', { name: "Jane's Profile" })
+      page.getByRole('heading', { name: "Jane's Settings" })
     ).toBeVisible();
   });
 
   test('should fail with empty first name', async ({ page }) => {
+    await page.getByPlaceholder('First and Last Name').scrollIntoViewIfNeeded();
     await page.getByPlaceholder('First and Last Name').click();
+    await page.waitForTimeout(300);
+    await page.getByPlaceholder('First and Last Name').fill('');
     await page.waitForTimeout(300);
     await page.getByPlaceholder('First and Last Name').fill('');
     await page.waitForTimeout(300);

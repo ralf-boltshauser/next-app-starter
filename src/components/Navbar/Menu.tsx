@@ -27,6 +27,11 @@ export default async function MenuComponent() {
       requiresSignIn: SignInStatus.SignedOut,
     },
     {
+      name: 'Pricing',
+      href: '/#pricing',
+      requiresSignIn: SignInStatus.SignedOut,
+    },
+    {
       name: 'About',
       href: '/about',
       requiresSignIn: SignInStatus.SignedOut,
@@ -42,8 +47,8 @@ export default async function MenuComponent() {
       requiresSignIn: SignInStatus.SignedIn,
     },
     {
-      name: 'Profile',
-      href: '/profile',
+      name: 'Settings',
+      href: '/settings',
       requiresSignIn: SignInStatus.SignedIn,
     },
     {

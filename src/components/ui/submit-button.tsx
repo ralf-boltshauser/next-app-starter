@@ -21,7 +21,7 @@ const SubmitButton = React.forwardRef<
       aria-disabled={buttonPending}
       disabled={buttonPending}
       {...props}
-      className="flex gap-2 items-center"
+      className="flex items-center gap-2"
     >
       <AnimatePresence mode="popLayout">
         {buttonPending && spinner ? (
@@ -31,7 +31,7 @@ const SubmitButton = React.forwardRef<
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.1 } }}
             transition={{ duration: 0.2, ease: 'easeInOut', delay: 0.1 }}
-            className="border-gray-300 w-4 h-4 animate-spin rounded-full border-2 border-t-gray-600"
+            className="h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-gray-600"
           />
         ) : null}
       </AnimatePresence>

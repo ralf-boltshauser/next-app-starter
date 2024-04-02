@@ -1,26 +1,24 @@
 'use client';
+import PlanPricing from '@/components/landing/PlanPricing';
+import { Button } from '@/components/ui/button';
+import { DialogClose } from '@/components/ui/dialog';
 import { plans } from '@/lib/plans';
 import { useSearchParams } from 'next/navigation';
-import PlanPricing from './PlanPricing';
+import { Modal } from './modal';
 
-export default function PricingSection({
-  landing = true,
-}: {
-  landing?: boolean;
-}) {
+export default function PricingModal() {
   const queryParams = useSearchParams();
 
   const preferredPlanId = queryParams.get('plan');
   return (
-    <>
-      <div id="pricing"></div>
-      <div className="mx-5 mt-5 md:mx-auto md:mt-24 md:max-w-4xl">
+    <Modal>
+      <div className="mx-5 mt-5 max-h-[95vh] text-center md:mx-auto md:mb-16 md:max-h-screen md:max-w-6xl">
         <h3 className="text-lg text-primary">Pricing</h3>
         <h2 className="text-4xl font-bold">
           Choose the right pricing plan
           <br /> for your and your business
         </h2>
-        <div className="mt-8 flex flex-col items-stretch justify-center gap-4 md:flex-row">
+        <div className="mt-8 flex h-fit max-h-[70vh] max-w-[100vw] flex-col items-stretch justify-start gap-4 overflow-scroll px-5 md:max-h-none md:max-w-none md:flex-row md:justify-center md:overflow-auto  md:pb-16">
           {plans.map((plan) => (
             <PlanPricing
               key={plan.name}
@@ -30,11 +28,14 @@ export default function PricingSection({
                   ? plan.tier.valueOf() == parseInt(preferredPlanId)
                   : undefined
               }
-              landing={landing}
+              landing={false}
             />
           ))}
+          <DialogClose className="my-8 md:hidden">
+            <Button>Close</Button>
+          </DialogClose>
         </div>
       </div>
-    </>
+    </Modal>
   );
 }

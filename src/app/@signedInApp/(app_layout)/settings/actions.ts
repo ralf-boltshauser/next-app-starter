@@ -4,7 +4,7 @@ import { getSessionUser } from '@/lib/auth';
 import { prisma } from '@/lib/client';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
-import { profileFormSchema } from './profileSchema';
+import { profileFormSchema } from './_profile/profileSchema';
 
 export async function updateProfile(values: z.infer<typeof profileFormSchema>) {
   const payload = profileFormSchema.safeParse(values);

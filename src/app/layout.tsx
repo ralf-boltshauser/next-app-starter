@@ -41,9 +41,11 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   signedInApp,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
   signedInApp: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   const posthogBootstrapData = await getBootstrapData();
 
@@ -58,6 +60,7 @@ export default async function RootLayout({
           <PostHogPageView />
           <NextAuthProvider>
             {signedIn ? signedInApp : children}
+            {modal}
           </NextAuthProvider>
           <Toaster />
         </body>
