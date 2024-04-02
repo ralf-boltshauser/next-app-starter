@@ -21,7 +21,7 @@ export default async function CheckoutSuccess() {
         Your payment has been processed successfully and you now have access to
         the following tier:
       </p>
-      <Card className="mt-5 w-fit">
+      <Card className="mt-5 max-w-xs">
         <CardHeader>
           <CardTitle className="text-xl">{pricingPlan.name}</CardTitle>
         </CardHeader>

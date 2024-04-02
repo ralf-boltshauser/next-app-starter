@@ -2,14 +2,13 @@ import { AccessButton } from '@/components/ui/access-button';
 import ConditionalTierRender from '@/components/ui/conditional-tier-render';
 import { FeatureList, Tiers } from '@/lib/access';
 
-export default async function App() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+export default function App() {
   return (
     <div>
       <h2>App</h2>
 
       <AccessButton feature={FeatureList.PremiumFeature}>
-        Premium Feature
+        <p>Premium Feature</p>
       </AccessButton>
       <ConditionalTierRender tier={Tiers.Free}>
         <div>Free Tier</div>
