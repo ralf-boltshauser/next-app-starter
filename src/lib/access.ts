@@ -81,3 +81,11 @@ export async function userHasTier(tier: Tiers): Promise<boolean> {
 
   return tierId ? tierId >= tier : false;
 }
+
+export async function getRequiredTier(feature: FeatureList): Promise<Tiers> {
+  const resFeature = await prisma.feature.findUnique({
+    where: { name: feature.toString() },
+  });
+
+  return resFeature?.id ?? Tiers.Free;
+}

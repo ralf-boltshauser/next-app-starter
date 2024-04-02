@@ -1,4 +1,6 @@
+'use client';
 import { plans } from '@/lib/plans';
+import { useSearchParams } from 'next/navigation';
 import PlanPricing from './PlanPricing';
 
 export default function PricingSection({
@@ -6,6 +8,9 @@ export default function PricingSection({
 }: {
   landing?: boolean;
 }) {
+  const queryParams = useSearchParams();
+
+  const preferredPlanId = queryParams.get('plan');
   return (
     <>
       <div id="pricing"></div>
@@ -17,7 +22,16 @@ export default function PricingSection({
         </h2>
         <div className="mt-8 flex flex-col items-stretch justify-center gap-4  md:flex-row">
           {plans.map((plan) => (
-            <PlanPricing key={plan.name} plan={plan} landing={landing} />
+            <PlanPricing
+              key={plan.name}
+              plan={plan}
+              recommended={
+                preferredPlanId
+                  ? plan.tier.valueOf() == parseInt(preferredPlanId)
+                  : undefined
+              }
+              landing={landing}
+            />
           ))}
         </div>
       </div>

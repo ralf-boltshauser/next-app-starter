@@ -1,8 +1,6 @@
-'use client';
-import { FeatureList } from '@/lib/access';
-import { canAccessFeatureAction } from '@/lib/access-actions';
+import { canAccessFeature, FeatureList, getRequiredTier } from '@/lib/access';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { AnimatedButton } from './animated-button';
 import { ButtonProps } from './button';
 
@@ -12,23 +10,17 @@ const AccessButton = React.forwardRef<
     feature: FeatureList;
   }
 >(async ({ feature, ...props }, ref) => {
-  const [canAccess, setCanAccess] = useState(false);
+  const canAccess = await canAccessFeature(feature);
 
-  useEffect(() => {
-    const checkAccess = async () => {
-      const access = await canAccessFeatureAction(feature);
-      setCanAccess(access);
-    };
-    checkAccess();
-  }, [feature]);
+  const requiredTier = await getRequiredTier(feature);
 
   return canAccess ? (
-    <AnimatedButton {...props} type="submit">
+    <AnimatedButton {...props} type="submit" layoutId="test">
       {props.children}
     </AnimatedButton>
   ) : (
-    <Link href={'/pricing'} passHref>
-      <AnimatedButton {...props} onClick={undefined}>
+    <Link href={`/pricing?plan=${requiredTier.valueOf()}`} passHref>
+      <AnimatedButton {...props} onClick={undefined} layoutId="test">
         {props.children}
       </AnimatedButton>
     </Link>

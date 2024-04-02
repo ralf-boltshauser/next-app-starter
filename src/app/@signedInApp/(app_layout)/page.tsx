@@ -2,7 +2,8 @@ import { AccessButton } from '@/components/ui/access-button';
 import ConditionalTierRender from '@/components/ui/conditional-tier-render';
 import { FeatureList, Tiers } from '@/lib/access';
 
-export default function App() {
+export default async function App() {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   return (
     <div>
       <h2>App</h2>
