@@ -11,7 +11,6 @@ test.beforeEach(async ({ page }) => {
     .getByPlaceholder('Password Confirmation', { exact: true })
     .fill('password');
   await page.getByRole('button', { name: 'Sign Up' }).click();
-
   await page.getByRole('button', { name: 'Settings' }).click();
 });
 

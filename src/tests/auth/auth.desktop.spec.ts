@@ -20,7 +20,7 @@ test.describe('Sign up Form Validation, negative tests', () => {
   });
 
   test('should fail with invalid email', async ({ page }) => {
-    await page.goto('http://localhost:3000/auth/sign-in');
+    await page.getByRole('button', { name: 'Sign In' }).click();
 
     await page.getByRole('tab', { name: 'Sign up' }).click();
     await page.getByPlaceholder('First and Last Name').fill(name);
@@ -73,6 +73,7 @@ test.describe.serial('Sign up / Sign in', () => {
   const name = 'John Doe';
   const password = 'password';
   test('should create an account and sign out', async ({ page }) => {
+    await page.waitForLoadState('networkidle');
     await page.goto('http://localhost:3000/auth/sign-in');
 
     await page.getByRole('tab', { name: 'Sign up' }).click();
