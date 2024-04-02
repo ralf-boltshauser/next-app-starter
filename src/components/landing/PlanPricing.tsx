@@ -38,7 +38,7 @@ export default function PlanPricing({
         className="flex-grow"
       >
         <Card
-          className={`mt-4 flex h-full min-w-[15vw] flex-col justify-start gap-2 text-start ${isRecommended ? 'border-4 border-primary' : 'my-4'}`}
+          className={`mt-4 flex h-full min-w-[300px] flex-col justify-start gap-2 text-start ${isRecommended ? 'border-4 border-primary' : 'my-4'}`}
         >
           <CardHeader className="">
             <CardTitle

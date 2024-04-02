@@ -46,7 +46,7 @@ export default async function SettingsPage() {
               🚀
             </ConditionalTierRender>
           </h1>
-          <p className="text-xs text-muted-foreground">
+          <p className="hidden text-xs text-muted-foreground md:block">
             Last change: {user.updatedAt.toLocaleDateString()}
           </p>
         </div>
