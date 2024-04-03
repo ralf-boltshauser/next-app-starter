@@ -42,10 +42,20 @@ test.describe.serial('Buying plans', () => {
       .getByRole('button', { name: 'Buy Now' })
       .first()
       .scrollIntoViewIfNeeded();
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(1000);
     await page.getByRole('button', { name: 'Buy Now' }).first().click();
 
     await page.waitForTimeout(1000);
+    // check if next locator is visible, otherwise click previous button again
+    if (!(await page.getByPlaceholder('1234 1234 1234').isVisible())) {
+      if (
+        await page.getByRole('button', { name: 'Buy Now' }).first().isVisible()
+      ) {
+        await page.getByRole('button', { name: 'Buy Now' }).first().click();
+      }
+      await page.waitForTimeout(1000);
+    }
+
     await page.getByPlaceholder('1234 1234 1234').fill('4242 4242 4242 42422');
     await page.getByPlaceholder('1234 1234 1234').press('Tab');
     await page.getByPlaceholder('MM / YY').fill('12 / 38');

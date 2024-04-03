@@ -12,13 +12,10 @@ export async function sendMail(msg: sgMail.MailDataRequired) {
     return;
   }
 
-  console.error(process.env.NODE_ENV);
-
   if (process.env.NODE_ENV === 'development') {
     console.log('Email not sent in test environment.' + JSON.stringify(msg));
     return;
   }
-
   try {
     await sgMail.send(msg);
   } catch (error) {

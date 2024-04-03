@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
+    "preinstall": "npx only-allow pnpm",
     "lint": "next lint",
     "test": "npx playwright test --reporter=dot --workers=2",
     "format": "prettier --check --ignore-path .gitignore .",

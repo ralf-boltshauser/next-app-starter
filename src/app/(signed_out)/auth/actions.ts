@@ -13,6 +13,7 @@ export async function startResetPasswordFlow(email: string) {
   });
 
   if (!user) {
+    console.error('User not found, no reset token created.');
     throw new Error('User not found');
   }
 
