@@ -82,7 +82,6 @@ export default async function MenuComponent() {
 
   return (
     <>
-      {' '}
       <div className="hidden space-x-5 md:flex">
         {filteredMenuItems.map((item, index) => {
           if (item.action === 'signOut') {
@@ -90,7 +89,9 @@ export default async function MenuComponent() {
           } else if (item.href) {
             return (
               <Link key={item.name} href={item.href}>
-                <Button variant={item.variant ?? 'outline'}>{item.name}</Button>
+                <Button size={'sm'} variant={item.variant ?? 'link'}>
+                  {item.name}
+                </Button>
               </Link>
             );
           }

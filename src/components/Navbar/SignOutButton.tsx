@@ -11,5 +11,9 @@ export default function SignOutButton({
   const handleSignOut = async () => {
     signOut({ callbackUrl: '/' });
   };
-  return <Button onClick={() => handleSignOut()}>{children}</Button>;
+  return (
+    <Button size={'sm'} onClick={() => handleSignOut()}>
+      {children}
+    </Button>
+  );
 }

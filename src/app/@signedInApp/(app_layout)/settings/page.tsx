@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { AnimatedButton } from '@/components/ui/animated-button';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardDescription,
@@ -51,28 +52,28 @@ export default async function SettingsPage() {
           </p>
         </div>
         <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
-          <nav className="grid gap-4 text-sm text-muted-foreground">
-            <Link href="#general" className="">
-              General
-            </Link>
-            <Link href="#billing">Billing</Link>
+          <nav className="grid gap-2 text-sm text-muted-foreground">
+            <Button variant={'link'} asChild className="m-0 w-fit p-0">
+              <Link href="#general" className="">
+                General
+              </Link>
+            </Button>
+            <Button variant={'link'} asChild className="m-0 w-fit p-0">
+              <Link href="#billing" className="w-fit">
+                Billing
+              </Link>
+            </Button>
+            <Button variant={'link'} asChild className="m-0 w-fit p-0">
+              <Link href="#danger-zone" className="w-fit">
+                Danger Zone
+              </Link>
+            </Button>
           </nav>
           <ScrollArea className="h-[80vh] w-full">
             <div className="grid gap-6">
               <div id="general" className="flex flex-col gap-4">
                 <h2 className="text-xl font-semibold">General</h2>
                 <ProfileForm user={user} />
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Delete your Account</CardTitle>
-                    <CardDescription>
-                      Be careful, you can not undo this action!
-                    </CardDescription>
-                  </CardHeader>
-                  <CardFooter className="border-t px-6 py-4">
-                    <DeleteAccountComponent />
-                  </CardFooter>
-                </Card>
               </div>
               <div id="billing" className="flex flex-col gap-4">
                 <h2 className="text-xl font-semibold">Billing</h2>
@@ -95,6 +96,20 @@ export default async function SettingsPage() {
                         <Link href={'/pricing'}>Purchase Plan</Link>
                       </AnimatedButton>
                     )}
+                  </CardFooter>
+                </Card>
+              </div>
+              <div id="danger-zone" className="flex flex-col gap-4">
+                <h2 className="text-xl font-semibold">Danger Zone</h2>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Delete your Account</CardTitle>
+                    <CardDescription>
+                      Be careful, you can not undo this action!
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter className="border-t px-6 py-4">
+                    <DeleteAccountComponent />
                   </CardFooter>
                 </Card>
               </div>

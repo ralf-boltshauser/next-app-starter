@@ -17,8 +17,14 @@ export default function PricingSection({
       <div className="mx-5 mt-5 md:mx-auto md:mt-24 md:max-w-4xl">
         <h3 className="text-lg text-primary">Pricing</h3>
         <h2 className="text-4xl font-bold">
-          Choose the right pricing plan
-          <br /> for your and your business
+          {preferredPlanId ? (
+            `For this feature you need the ${plans.find((plan) => plan.tier.valueOf() == parseInt(preferredPlanId))?.name ?? 'Lowest'} plan`
+          ) : (
+            <span>
+              Choose the right pricing plan
+              <br /> for your and your business
+            </span>
+          )}
         </h2>
         <div className="mt-8 flex flex-col items-stretch justify-center gap-4 md:flex-row">
           {plans.map((plan) => (

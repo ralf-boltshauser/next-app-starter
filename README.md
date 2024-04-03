@@ -7,6 +7,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 ### Prio
 
 - [ ] paste a fancy dashboard from shadcn into the app route
+- [ ] should be able to reach contact and about etc when signed in
 - [ ] SEO
 - [ ] pnpm
 
