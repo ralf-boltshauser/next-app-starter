@@ -1,7 +1,7 @@
 'use client';
 
 import CheckoutButton from '@/app/@signedInApp/(app_layout)/(billing)/checkout/CheckoutButton';
-import { PricingPlan } from '@/lib/plans';
+import { PricingPlan } from '@/lib/stripe/plans';
 import { CheckCircledIcon, MinusCircledIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Link from 'next/link';

@@ -2,7 +2,7 @@
 import PlanPricing from '@/components/landing/PlanPricing';
 import { Button } from '@/components/ui/button';
 import { DialogClose } from '@/components/ui/dialog';
-import { plans } from '@/lib/plans';
+import { plans } from '@/lib/stripe/plans';
 import { useSearchParams } from 'next/navigation';
 import { Modal } from './modal';
 

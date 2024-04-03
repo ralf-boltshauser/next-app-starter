@@ -1,4 +1,4 @@
-import { Tiers, userHasTier } from '@/lib/access';
+import { Tiers, userHasTier } from '@/lib/access/access';
 import Link from 'next/link';
 
 export default async function ConditionalTierRender({

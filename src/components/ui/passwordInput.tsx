@@ -13,7 +13,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
     return (
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <Input
           type={showPassword ? 'text' : 'password'}
           className={cn(

@@ -2,7 +2,7 @@ import NextAuthProvider from '@/components/auth/NextAuthProvider';
 import { getBootstrapData } from '@/components/posthog/PostHog';
 import { PHProvider } from '@/components/posthog/Providers';
 import { Toaster } from '@/components/ui/sonner';
-import { authOptions } from '@/lib/auth';
+import { authOptions } from '@/lib/auth/auth';
 import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import dynamic from 'next/dynamic';
