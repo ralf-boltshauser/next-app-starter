@@ -1,4 +1,8 @@
-import { canAccessFeature, FeatureList, getRequiredTier } from '@/lib/access';
+import {
+  canAccessFeature,
+  FeatureList,
+  getRequiredTier,
+} from '@/lib/access/access';
 import Link from 'next/link';
 import { AnimatedButton } from './animated-button';
 import { ButtonProps } from './button';

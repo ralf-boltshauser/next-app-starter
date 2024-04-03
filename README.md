@@ -4,14 +4,15 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 ## Todo
 
-- [ ] email
+- [ ] internationalization
+- [ ] telemetry
 - [ ] default landing page
   - [x] create landing page
   - [ ] make it available for dark mode
 - [ ] check out horizon boilerplate what they already have
-- [ ] internationalization
-- [ ] telemetry
-- [x] parallel routes for landing vs signed in state
+- [ ] paste a fancy dashboard from shadcn into the app route
+- [ ] SEO
+- [ ] pnpm
 
 ## Getting Started
 
@@ -31,7 +32,11 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
     - [ ] Configure the default tier as Tier 0.
     - [ ] Add the webhook to the stripe dashboard. The endpoint is /api/stripe/webhook
     - [ ] Add the stripe webhook secret to the .env file `stripe listen -e customer.subscription.updated,customer.subscription.deleted,checkout.session.completed --forward-to http://localhost:3000/api/stripe/webhook`
-  - [ ] Go through deployment, since there are many steps that you need to take for local dev as well, like NEXTAUTH_SECRET etc.
+  - [ ] Email
+    - [ ] Setup SendGrid account
+    - [ ] Add the SendGrid environment variables to the .env file
+    - [ ] create dynamic templates and add the ids to the mail.ts file
+  - [ ] Go through all deployment steps, since there are many steps that you need to take for local dev as well, like NEXTAUTH_SECRET etc.
 
 - [ ] Deployment
 

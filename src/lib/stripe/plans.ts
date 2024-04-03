@@ -1,4 +1,4 @@
-import { Tiers } from './access';
+import { Tiers } from '../access/access';
 
 export interface PricingPlan {
   tier: Tiers;

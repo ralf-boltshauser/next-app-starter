@@ -1,9 +1,11 @@
 // TODO this is not ideal yet, stripe has a way to upgrade tiers etc, I just delete the old one and add a new! I need to remove the unique userId constraint for StripeCustomer and then need to adjust the code everywhere
 import { prisma } from '@/lib/client';
-import { plans } from '@/lib/plans';
+import { sendMail } from '@/lib/mail/mail';
+import { fromMail, MailTemplates } from '@/lib/mail/mail-types';
+import { plans } from '@/lib/stripe/plans';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { stripe } from '../../../../lib/stripe';
+import { stripe } from '../../../../lib/stripe/stripe';
 
 export async function POST(request: NextRequest) {
   let event;
@@ -121,6 +123,7 @@ export async function POST(request: NextRequest) {
           },
         });
       }
+      await sendTransactionalEmail(userId);
     }
 
     if (event.type === 'customer.subscription.updated') {
@@ -198,4 +201,19 @@ async function cancelSubscription(subscriptionId: string) {
     where: { subscriptionId: subscriptionId },
   });
   await stripe.subscriptions.cancel(subscriptionId);
+}
+
+async function sendTransactionalEmail(userId: string) {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+
+  if (user) {
+    await sendMail({
+      to: user.email,
+      from: fromMail,
+      subject: 'Thank you for the upgrade!',
+      templateId: MailTemplates.Purchase,
+    });
+  }
 }

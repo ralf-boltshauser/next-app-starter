@@ -73,7 +73,6 @@ test.describe.serial('Sign up / Sign in', () => {
   const name = 'John Doe';
   const password = 'password';
   test('should create an account and sign out', async ({ page }) => {
-    await page.waitForLoadState('networkidle');
     await page.goto('http://localhost:3000/auth/sign-in');
 
     await page.getByRole('tab', { name: 'Sign up' }).click();

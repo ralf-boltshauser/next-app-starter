@@ -1,6 +1,6 @@
 'use server';
 
-import { getSessionUser } from '@/lib/auth';
+import { getSessionUser } from '@/lib/auth/auth';
 import { prisma } from '@/lib/client';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';

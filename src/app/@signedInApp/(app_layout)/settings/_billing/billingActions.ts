@@ -1,8 +1,8 @@
 'use server';
 
-import { getSessionUser } from '@/lib/auth';
+import { getSessionUser } from '@/lib/auth/auth';
 import { prisma } from '@/lib/client';
-import { stripe } from '@/lib/stripe';
+import { stripe } from '@/lib/stripe/stripe';
 
 export async function createPortalSession() {
   const user = await getSessionUser();

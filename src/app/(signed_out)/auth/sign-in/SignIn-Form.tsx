@@ -78,9 +78,11 @@ export function SignInForm({ callbackUrl }: { callbackUrl: string }) {
             </FormItem>
           )}
         />
-        <SubmitButton isPending={form.formState.isSubmitting}>
-          Sign In
-        </SubmitButton>
+        <div className="flex gap-2">
+          <SubmitButton isPending={form.formState.isSubmitting}>
+            Sign In
+          </SubmitButton>
+        </div>
       </form>
     </Form>
   );

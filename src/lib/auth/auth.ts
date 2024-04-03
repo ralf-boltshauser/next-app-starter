@@ -5,7 +5,9 @@ import { getServerSession, NextAuthOptions, User } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { redirect } from 'next/navigation';
-import { Tiers } from './access';
+import { Tiers } from '../access/access';
+import { sendMail } from '../mail/mail';
+import { fromMail, MailTemplates } from '../mail/mail-types';
 
 export const config = {
   maxDuration: 300,
@@ -66,6 +68,13 @@ export const authOptions: NextAuthOptions = {
             const hash = await bcrypt.hash(user.password, 10);
 
             const userResponse = await upsertUser(user, hash);
+            await sendMail({
+              to: user.email,
+              from: fromMail,
+              subject: 'Welcome!',
+              templateId: MailTemplates.Welcome,
+              dynamicTemplateData: { name: user.name },
+            });
 
             userId = userResponse.id;
           } else {

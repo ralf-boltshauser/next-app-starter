@@ -1,5 +1,5 @@
-import { getSessionUser } from '@/lib/auth';
-import { stripe } from '@/lib/stripe';
+import { getSessionUser } from '@/lib/auth/auth';
+import { stripe } from '@/lib/stripe/stripe';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {

@@ -10,8 +10,8 @@ import {
 } from '@/components/ui/card';
 import ConditionalTierRender from '@/components/ui/conditional-tier-render';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Tiers } from '@/lib/access';
-import { getSessionUser } from '@/lib/auth';
+import { Tiers } from '@/lib/access/access';
+import { getSessionUser } from '@/lib/auth/auth';
 import { prisma } from '@/lib/client';
 import { redirect } from 'next/navigation';
 import PortalButton from './_billing/PortalButton';

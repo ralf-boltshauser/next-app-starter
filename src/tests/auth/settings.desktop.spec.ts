@@ -1,34 +1,38 @@
+import { prisma } from '@/lib/client';
 import { expect, test } from '@playwright/test';
+import { signUpUser } from '../helpers';
 
-test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:3000/auth/sign-in');
+let rand, name, email: string, password;
+test.beforeEach(async ({ page }, testInfo: any) => {
+  rand = Math.random().toString(36).substring(7);
+  name = 'John Doe';
+  email = `test-user-${rand}@user.ch`;
+  password = 'password';
 
-  await page.getByRole('tab', { name: 'Sign up' }).click();
-  await page.getByPlaceholder('First and Last Name').fill('John Doe');
-  await page.getByPlaceholder('Email').fill('asdf@asdf.ch');
-  await page.getByPlaceholder('Password', { exact: true }).fill('password');
-  await page
-    .getByPlaceholder('Password Confirmation', { exact: true })
-    .fill('password');
-  await page.getByRole('button', { name: 'Sign Up' }).click();
+  testInfo.email = email;
+
+  await signUpUser(page, name, email, password);
   await page.getByRole('button', { name: 'Settings' }).click();
 });
 
 test.describe.serial('Profile Form', () => {
-  test('should update the first name', async ({ page }) => {
+  test('should update the first name', async ({ page }, testInfo: any) => {
+    await page.waitForTimeout(600);
     await page.getByPlaceholder('First and Last Name').click();
     await page.getByPlaceholder('First and Last Name').fill('Jane Doe');
     await page.waitForTimeout(600);
     await page.getByRole('button', { name: 'Save' }).click();
-    await page.getByRole('button', { name: 'Save' }).click();
     await page.waitForSelector('text=Profile has been updated successfully!');
 
-    await page
-      .getByRole('heading', { name: "Jane's Settings" })
-      .scrollIntoViewIfNeeded();
-    await expect(
-      page.getByRole('heading', { name: "Jane's Settings" })
-    ).toBeVisible();
+    await page.waitForTimeout(600);
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: testInfo.email,
+      },
+    });
+
+    expect(user?.name).toBe('Jane Doe');
   });
 
   test('should fail with empty first name', async ({ page }) => {

@@ -1,7 +1,7 @@
 import { AnimatedButton } from '@/components/ui/animated-button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { getUserTier } from '@/lib/auth';
-import { plans } from '@/lib/plans';
+import { getUserTier } from '@/lib/auth/auth';
+import { plans } from '@/lib/stripe/plans';
 import { CheckCircledIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 

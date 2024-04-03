@@ -1,5 +1,5 @@
-import { getSessionUser } from './auth';
-import { prisma } from './client';
+import { getSessionUser } from '../auth/auth';
+import { prisma } from '../client';
 
 export enum FeatureList {
   PremiumFeature = 'PremiumFeature',

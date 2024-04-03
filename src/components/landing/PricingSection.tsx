@@ -1,5 +1,5 @@
 'use client';
-import { plans } from '@/lib/plans';
+import { plans } from '@/lib/stripe/plans';
 import { useSearchParams } from 'next/navigation';
 import PlanPricing from './PlanPricing';
 

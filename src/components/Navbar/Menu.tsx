@@ -1,4 +1,4 @@
-import { authOptions } from '@/lib/auth';
+import { authOptions } from '@/lib/auth/auth';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import { Button } from '../ui/button';
