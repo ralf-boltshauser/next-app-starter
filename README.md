@@ -4,15 +4,18 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 ## Todo
 
-- [ ] internationalization
-- [ ] telemetry
-- [ ] default landing page
-  - [x] create landing page
-  - [ ] make it available for dark mode
-- [ ] check out horizon boilerplate what they already have
+### Prio
+
 - [ ] paste a fancy dashboard from shadcn into the app route
 - [ ] SEO
 - [ ] pnpm
+
+### Backlog
+
+- [ ] internationalization
+- [ ] telemetry
+- [ ] proper dark mode for everything
+- [ ] check out horizon boilerplate what they already have
 
 ## Getting Started
 
