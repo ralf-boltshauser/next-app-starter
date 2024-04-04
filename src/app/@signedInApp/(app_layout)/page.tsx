@@ -2,6 +2,7 @@ import { H1 } from '@/components/design-system/headings';
 import { AccessButton } from '@/components/ui/access-button';
 import ConditionalTierRender from '@/components/ui/conditional-tier-render';
 import { Input } from '@/components/ui/input';
+import { TooltipButton } from '@/components/ui/tooltip-button';
 import { FeatureList, Tiers } from '@/lib/access/access';
 import { sendMail } from '@/lib/mail/mail';
 import { fromMail } from '@/lib/mail/mail-types';
@@ -20,6 +21,28 @@ export default function App() {
   return (
     <div>
       <H1>App</H1>
+      <div className="flex gap-2">
+        <TooltipButton
+          className="mt-5"
+          tooltip="This is a really long tooltip!"
+        >
+          Hello world
+        </TooltipButton>
+        <TooltipButton
+          buttonType="animated"
+          className="mt-5"
+          tooltip="This is a really long tooltip!"
+        >
+          Hello world
+        </TooltipButton>
+        <TooltipButton
+          className="mt-5"
+          buttonType="submit"
+          tooltip="This is a really long tooltip!"
+        >
+          Hello world
+        </TooltipButton>
+      </div>
 
       <h3 className="text-2xl">Send E-mail</h3>
       <form action={sendSGMail} className="flex gap-2">

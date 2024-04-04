@@ -9,7 +9,7 @@ const AnimatedButton = React.forwardRef<
   ButtonProps & { layoutId?: string }
 >(({ layoutId, ...props }, ref) => {
   return (
-    <Button asChild {...props}>
+    <Button asChild {...props} ref={ref}>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9 }}

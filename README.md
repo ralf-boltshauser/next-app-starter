@@ -7,9 +7,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 ### Prio
 
 - [ ] paste a fancy dashboard from shadcn into the app route
-- [ ] make it full with on mac
-- [ ] tooltip btn
-- [ ] should be able to reach contact and about etc when signed in?
+- [x] tooltip btn
 - [ ] SEO
 - [ ] think about how to add a blog / docs (should it be a separate app? or just a route? maybe zones?)
 - [ ] find beautiful charting library, maybe shadcn has one
@@ -17,6 +15,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 ### Backlog
 
+- [ ] should be able to reach contact and about etc when signed in? -> either duplicate this to both, or find a better solution with the parallel routes in terms of figuring out and then displaying conditionally useSelectedLayoutSegment
 - [ ] build an actual app
 - [ ] implement onboarding system
 - [ ] proper mobile support
