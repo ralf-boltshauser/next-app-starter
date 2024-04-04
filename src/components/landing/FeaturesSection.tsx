@@ -1,9 +1,9 @@
 'use client';
+import { Card } from '@/components/ui/card';
 import { BookmarkIcon, HomeIcon, SunIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { Card } from '../ui/card';
 
 interface Feature {
   name: string;

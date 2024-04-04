@@ -1,6 +1,6 @@
+import { AnimatedButton } from '@/components/ui/animated-button';
+import { Input } from '@/components/ui/input';
 import { PaperPlaneIcon } from '@radix-ui/react-icons';
-import { AnimatedButton } from '../ui/animated-button';
-import { Input } from '../ui/input';
 
 export default function CTASection() {
   return (

@@ -1,19 +1,19 @@
 'use client';
 
 import CheckoutButton from '@/app/@signedInApp/(app_layout)/(billing)/checkout/CheckoutButton';
-import { PricingPlan } from '@/lib/stripe/plans';
-import { CheckCircledIcon, MinusCircledIcon } from '@radix-ui/react-icons';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { AnimatedButton } from '../ui/animated-button';
+import { AnimatedButton } from '@/components/ui/animated-button';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../ui/card';
+} from '@/components/ui/card';
+import { PricingPlan } from '@/lib/stripe/plans';
+import { CheckCircledIcon, MinusCircledIcon } from '@radix-ui/react-icons';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 export default function PlanPricing({
   plan,

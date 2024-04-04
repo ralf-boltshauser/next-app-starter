@@ -1,7 +1,7 @@
+import { Button } from '@/components/ui/button';
 import { authOptions } from '@/lib/auth/auth';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
-import { Button } from '../ui/button';
 import MobileMenu from './MobileMenu';
 import SignOutButton from './SignOutButton';
 
