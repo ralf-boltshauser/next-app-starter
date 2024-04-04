@@ -6,6 +6,7 @@ export default async function ConditionalTierRender({
   children,
   fakeChildren,
   type = 'blur',
+  ...props
 }: {
   tier: Tiers;
   children: React.ReactNode;
@@ -23,14 +24,13 @@ export default async function ConditionalTierRender({
   }
 
   return (
-    <>
-      <Link
-        href={`/pricing?plan=${tier.valueOf()}`}
-        passHref
-        className="blur-sm"
-      >
-        {fakeChildren || children}
-      </Link>
-    </>
+    <Link
+      href={`/pricing?plan=${tier.valueOf()}`}
+      passHref
+      className="h-full w-full blur-sm"
+      {...props}
+    >
+      {fakeChildren || children}
+    </Link>
   );
 }

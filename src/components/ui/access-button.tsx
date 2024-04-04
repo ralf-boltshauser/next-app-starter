@@ -18,12 +18,15 @@ export async function AccessButton({
   const canAccess = await canAccessFeature(feature);
   const requiredTier = await getRequiredTier(feature);
   return canAccess ? (
-    <AnimatedButton {...props} type="submit" layoutId="test">
+    <AnimatedButton {...props} type="submit">
       {children}
     </AnimatedButton>
   ) : (
-    <Link href={`/pricing?plan=${requiredTier.valueOf()}`}>
-      <AnimatedButton {...props} onClick={undefined} layoutId="test">
+    <Link
+      href={`/pricing?plan=${requiredTier.valueOf()}`}
+      className={props.className}
+    >
+      <AnimatedButton {...props} onClick={undefined} className="">
         {children}
       </AnimatedButton>
     </Link>
