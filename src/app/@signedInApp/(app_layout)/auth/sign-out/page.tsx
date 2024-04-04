@@ -1,4 +1,5 @@
 'use client';
+import { H1 } from '@/components/design-system/headings';
 import { Button } from '@/components/ui/button';
 import { signOut } from 'next-auth/react';
 export default function SignOut() {
@@ -7,7 +8,7 @@ export default function SignOut() {
   };
   return (
     <>
-      <h1>You can sign out here!</h1>
+      <H1>You can sign out here!</H1>
       <Button onClick={handleSignOut}>Sign out</Button>
     </>
   );

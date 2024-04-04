@@ -1,4 +1,5 @@
 'use client';
+import { H1 } from '@/components/design-system/headings';
 import { AnimatedButton } from '@/components/ui/animated-button';
 import { Button } from '@/components/ui/button';
 import {
@@ -45,7 +46,7 @@ export default function ErrorPage() {
   const errorMessage = useSearchParams().get('error');
   return (
     <div>
-      <h2 className="text-2xl">Something went wrong!</h2>
+      <H1>Something went wrong!</H1>
       <p className="my-3">{errorMessage}</p>
       <div className="flex gap-2">
         <Button variant="outline" onClick={() => window.history.back()}>

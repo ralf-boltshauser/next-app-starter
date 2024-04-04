@@ -1,3 +1,5 @@
+import { H1 } from '@/components/design-system/headings';
+
 export default async function About() {
-  return <h1>About</h1>;
+  return <H1>About</H1>;
 }

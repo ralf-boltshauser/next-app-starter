@@ -1,3 +1,4 @@
+import { H1 } from '@/components/design-system/headings';
 import { AnimatedButton } from '@/components/ui/animated-button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getUserTier } from '@/lib/auth/auth';
@@ -16,7 +17,7 @@ export default async function CheckoutSuccess() {
 
   return (
     <div>
-      <h1 className="text-3xl font-semibold">Checkout Success</h1>
+      <H1>Checkout Success</H1>
       <p>
         Your payment has been processed successfully and you now have access to
         the following tier:

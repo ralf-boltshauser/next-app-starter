@@ -1,5 +1,6 @@
 'use client'; // Error components must be Client Components
 
+import { H1 } from '@/components/design-system/headings';
 import { Button } from '@/components/ui/button';
 import { useEffect } from 'react';
 
@@ -17,7 +18,7 @@ export default function Error({
 
   return (
     <div>
-      <h2 className="text-2xl">Something went wrong!</h2>
+      <H1>Something went wrong!</H1>
       <Button
         onClick={
           // Attempt to recover by trying to re-render the segment

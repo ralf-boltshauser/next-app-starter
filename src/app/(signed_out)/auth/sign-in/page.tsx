@@ -1,4 +1,5 @@
 'use client';
+import { H1 } from '@/components/design-system/headings';
 import { AnimatedButton } from '@/components/ui/animated-button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { signIn } from 'next-auth/react';
@@ -22,30 +23,33 @@ export default function SignInPage() {
   };
 
   return (
-    <Tabs defaultValue={'sign-in-with-provider'}>
-      <TabsList className="grid w-full grid-cols-3">
-        <TabsTrigger value="sign-in-with-provider">Google</TabsTrigger>
-        <TabsTrigger value="sign-in-with-credentials">Sign in</TabsTrigger>
-        <TabsTrigger value="sign-up">Sign up</TabsTrigger>
-      </TabsList>
-      <TabsContent
-        value="sign-in-with-provider"
-        className="flex flex-col space-y-2"
-      >
-        <h2 className="text-xl">Sign in with Google!</h2>
-        <AnimatedButton
-          className="w-fit"
-          onClick={() => handleSignIn('google')}
+    <>
+      <H1>Get Started</H1>
+      <Tabs defaultValue={'sign-in-with-provider'} className="mt-4">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="sign-in-with-provider">Google</TabsTrigger>
+          <TabsTrigger value="sign-in-with-credentials">Sign in</TabsTrigger>
+          <TabsTrigger value="sign-up">Sign up</TabsTrigger>
+        </TabsList>
+        <TabsContent
+          value="sign-in-with-provider"
+          className="flex flex-col space-y-2"
         >
-          Sign in with Google
-        </AnimatedButton>
-      </TabsContent>
-      <TabsContent value="sign-in-with-credentials">
-        <SignInForm callbackUrl={callbackUrl} />
-      </TabsContent>
-      <TabsContent value="sign-up">
-        <SignUpForm callbackUrl={callbackUrl} />
-      </TabsContent>
-    </Tabs>
+          <h2 className="text-xl">Sign in with Google!</h2>
+          <AnimatedButton
+            className="w-fit"
+            onClick={() => handleSignIn('google')}
+          >
+            Sign in with Google
+          </AnimatedButton>
+        </TabsContent>
+        <TabsContent value="sign-in-with-credentials">
+          <SignInForm callbackUrl={callbackUrl} />
+        </TabsContent>
+        <TabsContent value="sign-up">
+          <SignUpForm callbackUrl={callbackUrl} />
+        </TabsContent>
+      </Tabs>
+    </>
   );
 }

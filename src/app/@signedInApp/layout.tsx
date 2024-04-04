@@ -1,16 +1,9 @@
-import Navbar from '@/components/Navbar/Navbar';
+import SharedLayout from '@/components/shared/shared-layout';
 
 export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <>
-      <Navbar />
-      <main className="relative z-0 mx-auto my-24 max-w-6xl">
-        <div className="m-5">{children}</div>
-      </main>
-    </>
-  );
+  return <SharedLayout>{children}</SharedLayout>;
 }

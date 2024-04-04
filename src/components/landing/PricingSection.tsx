@@ -1,6 +1,7 @@
 'use client';
 import { plans } from '@/lib/stripe/plans';
 import { useSearchParams } from 'next/navigation';
+import { H6 } from '../design-system/headings';
 import PlanPricing from './PlanPricing';
 
 export default function PricingSection({
@@ -15,7 +16,7 @@ export default function PricingSection({
     <>
       <div id="pricing"></div>
       <div className="mx-5 mt-5 md:mx-auto md:mt-24 md:max-w-4xl">
-        <h3 className="text-lg text-primary">Pricing</h3>
+        <H6 className=" font-normal">Pricing</H6>
         <h2 className="text-4xl font-bold">
           {preferredPlanId ? (
             `For this feature you need the ${plans.find((plan) => plan.tier.valueOf() == parseInt(preferredPlanId))?.name ?? 'Lowest'} plan`

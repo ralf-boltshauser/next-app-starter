@@ -1,3 +1,5 @@
+import { H1 } from '@/components/design-system/headings';
+
 export default function Contact() {
-  return <h1>Contact</h1>;
+  return <H1>Contact</H1>;
 }

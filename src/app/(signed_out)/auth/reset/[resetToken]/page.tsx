@@ -1,3 +1,4 @@
+import { H1 } from '@/components/design-system/headings';
 import { prisma } from '@/lib/client';
 import { redirect } from 'next/navigation';
 import { ResetForm } from './resetForm';
@@ -22,7 +23,7 @@ export default async function ResetPasswordPage({
 
   return (
     <div>
-      <h2 className="text-3xl font-semibold">Password Reset</h2>
+      <H1>Password Reset</H1>
       <ResetForm resetToken={resetToken} />
     </div>
   );

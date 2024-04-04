@@ -1,4 +1,5 @@
 'use client';
+import { H5 } from '@/components/design-system/headings';
 import PlanPricing from '@/components/landing/PlanPricing';
 import { Button } from '@/components/ui/button';
 import { DialogClose } from '@/components/ui/dialog';
@@ -13,7 +14,7 @@ export default function PricingModal() {
   return (
     <Modal>
       <div className="mx-5 mt-5 max-h-[95vh] text-center md:mx-auto md:mb-16 md:max-h-screen md:max-w-6xl">
-        <h3 className="text-lg text-primary">Pricing</h3>
+        <H5>Pricing</H5>
         {preferredPlanId ? (
           <h2 className="text-4xl ">
             For this feature you need the{' '}

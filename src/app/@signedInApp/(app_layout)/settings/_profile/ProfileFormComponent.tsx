@@ -45,7 +45,7 @@ export function ProfileForm({ user }: { user: User }) {
   }
 
   return (
-    <Card>
+    <Card className="max-w-2xl">
       <CardHeader>
         <CardTitle>User Profile</CardTitle>
       </CardHeader>

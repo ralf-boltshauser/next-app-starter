@@ -1,3 +1,4 @@
+import { H1 } from '@/components/design-system/headings';
 import { AccessButton } from '@/components/ui/access-button';
 import ConditionalTierRender from '@/components/ui/conditional-tier-render';
 import { Input } from '@/components/ui/input';
@@ -18,7 +19,7 @@ export default function App() {
   };
   return (
     <div>
-      <h2 className="text-3xl font-semibold">App</h2>
+      <H1>App</H1>
 
       <h3 className="text-2xl">Send E-mail</h3>
       <form action={sendSGMail} className="flex gap-2">

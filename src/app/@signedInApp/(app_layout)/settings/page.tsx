@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { H1 } from '@/components/design-system/headings';
 import { AnimatedButton } from '@/components/ui/animated-button';
 import { Button } from '@/components/ui/button';
 import {
@@ -40,18 +41,18 @@ export default async function SettingsPage() {
   return (
     <div className="flex w-full flex-col overflow-y-hidden">
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-0">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-2 ">
-          <h1 className="text-3xl font-semibold">
+        <div className="mx-auto flex w-full items-center justify-between gap-2 ">
+          <H1>
             {user.name.split(' ')[0]}&apos;s Settings{' '}
             <ConditionalTierRender tier={Tiers.Basic} type="hidden">
               🚀
             </ConditionalTierRender>
-          </h1>
+          </H1>
           <p className="hidden text-xs text-muted-foreground md:block">
             Last change: {user.updatedAt.toLocaleDateString()}
           </p>
         </div>
-        <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
+        <div className="mx-auto grid w-full items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
           <nav className="grid gap-2 text-sm text-muted-foreground">
             <Button variant={'link'} asChild className="m-0 w-fit p-0">
               <Link href="#general" className="">
@@ -70,14 +71,14 @@ export default async function SettingsPage() {
             </Button>
           </nav>
           <ScrollArea className="h-[80vh] w-full">
-            <div className="grid gap-6">
+            <div className="grid gap-6 2xl:grid-cols-2">
               <div id="general" className="flex flex-col gap-4">
                 <h2 className="text-xl font-semibold">General</h2>
                 <ProfileForm user={user} />
               </div>
               <div id="billing" className="flex flex-col gap-4">
                 <h2 className="text-xl font-semibold">Billing</h2>
-                <Card>
+                <Card className="max-w-2xl">
                   <CardHeader>
                     <CardTitle>Manage your Billing.</CardTitle>
                     <CardDescription>
@@ -101,7 +102,7 @@ export default async function SettingsPage() {
               </div>
               <div id="danger-zone" className="flex flex-col gap-4">
                 <h2 className="text-xl font-semibold">Danger Zone</h2>
-                <Card>
+                <Card className="max-w-2xl">
                   <CardHeader>
                     <CardTitle>Delete your Account</CardTitle>
                     <CardDescription>

@@ -7,12 +7,23 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 ### Prio
 
 - [ ] paste a fancy dashboard from shadcn into the app route
-- [ ] should be able to reach contact and about etc when signed in
+- [ ] make it full with on mac
+- [ ] tooltip btn
+- [ ] should be able to reach contact and about etc when signed in?
 - [ ] SEO
-- [ ] pnpm
+- [ ] think about how to add a blog / docs (should it be a separate app? or just a route? maybe zones?)
+- [ ] find beautiful charting library, maybe shadcn has one
+- [ ] think about onboarding process that the user can go through and supply more data
 
 ### Backlog
 
+- [ ] build an actual app
+- [ ] implement onboarding system
+- [ ] proper mobile support
+- [ ] think about community features
+- [ ] add a blog
+- [ ] realtime updates
+- [ ] inline stripe checkout
 - [ ] internationalization
 - [ ] telemetry
 - [ ] proper dark mode for everything
@@ -40,6 +51,8 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
     - [ ] Setup SendGrid account
     - [ ] Add the SendGrid environment variables to the .env file
     - [ ] create dynamic templates and add the ids to the mail.ts file
+  - [ ] Design System
+    - [ ] Have a consistent design system, for every heading of a page use H1 component, if you are not happy with the look of it change the component don't use a different heading component.
   - [ ] Go through all deployment steps, since there are many steps that you need to take for local dev as well, like NEXTAUTH_SECRET etc.
 
 - [ ] Deployment
