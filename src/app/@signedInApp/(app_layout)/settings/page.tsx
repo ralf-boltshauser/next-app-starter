@@ -10,9 +10,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import ConditionalTierRender from '@/components/ui/conditional-tier-render';
+import ConditionalPlanRender from '@/components/ui/conditional-plan-render';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Tiers } from '@/lib/access/access';
+import { FeatureList } from '@/lib/access/access';
 import { getSessionUser } from '@/lib/auth/auth';
 import { prisma } from '@/lib/client';
 import { redirect } from 'next/navigation';
@@ -44,9 +44,12 @@ export default async function SettingsPage() {
         <div className="mx-auto flex w-full items-center justify-between gap-2 ">
           <H1>
             {user.name.split(' ')[0]}&apos;s Settings{' '}
-            <ConditionalTierRender tier={Tiers.Basic} type="hidden">
+            <ConditionalPlanRender
+              feature={FeatureList.PremiumFeature}
+              type="hidden"
+            >
               🚀
-            </ConditionalTierRender>
+            </ConditionalPlanRender>
           </H1>
           <p className="hidden text-xs text-muted-foreground md:block">
             Last change: {user.updatedAt.toLocaleDateString()}

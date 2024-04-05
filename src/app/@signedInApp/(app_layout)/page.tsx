@@ -17,7 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import ConditionalTierRender from '@/components/ui/conditional-tier-render';
+import ConditionalPlanRender from '@/components/ui/conditional-plan-render';
 import {
   Table,
   TableBody,
@@ -26,7 +26,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { FeatureList, Tiers } from '@/lib/access/access';
+import { FeatureList } from '@/lib/access/access';
 import { sendMail } from '@/lib/mail/mail';
 import { fromMail } from '@/lib/mail/mail-types';
 
@@ -86,7 +86,7 @@ export default function Dashboard() {
               </p>
             </CardContent>
           </Card>
-          <ConditionalTierRender tier={Tiers.Basic}>
+          <ConditionalPlanRender feature={FeatureList.PremiumFeature}>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
@@ -101,7 +101,7 @@ export default function Dashboard() {
                 </p>
               </CardContent>
             </Card>
-          </ConditionalTierRender>
+          </ConditionalPlanRender>
         </div>
         <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
           <Card className="xl:col-span-2">
@@ -244,7 +244,7 @@ export default function Dashboard() {
             </CardContent>
           </Card>
 
-          <ConditionalTierRender tier={Tiers.Pro}>
+          <ConditionalPlanRender feature={FeatureList.PremiumFeature}>
             <Card>
               <CardHeader>
                 <CardTitle>Recent Sales</CardTitle>
@@ -327,7 +327,7 @@ export default function Dashboard() {
                 </div>
               </CardContent>
             </Card>
-          </ConditionalTierRender>
+          </ConditionalPlanRender>
         </div>
       </main>
     </div>
