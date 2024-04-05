@@ -8,6 +8,7 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 - [ ] think about onboarding process that the user can go through and supply more data
 - [ ] think about user instructions for the app
+- [ ] adjust conditional tier renderer to use features instead of tiers
 
 ### Backlog
 

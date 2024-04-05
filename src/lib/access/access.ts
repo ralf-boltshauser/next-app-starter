@@ -39,9 +39,7 @@ export async function canAccessFeature(feature: FeatureList): Promise<boolean> {
   // check if stripe customer is still active
   if (
     !usersWithAccess?.stripeCustomer?.tier ||
-    !usersWithAccess?.stripeCustomer?.planActive ||
-    (usersWithAccess?.stripeCustomer?.planExpires &&
-      usersWithAccess?.stripeCustomer?.planExpires < new Date())
+    !usersWithAccess?.stripeCustomer?.planActive
   ) {
     return false;
   }
@@ -70,9 +68,7 @@ export async function userHasTier(tier: Tiers): Promise<boolean> {
   // check if stripe customer is still active
   if (
     !usersWithAccess?.stripeCustomer?.tier ||
-    !usersWithAccess?.stripeCustomer?.planActive ||
-    (usersWithAccess?.stripeCustomer?.planExpires &&
-      usersWithAccess?.stripeCustomer?.planExpires < new Date())
+    !usersWithAccess?.stripeCustomer?.planActive
   ) {
     return false;
   }
