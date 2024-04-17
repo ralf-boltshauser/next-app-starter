@@ -47,7 +47,10 @@ export const authOptions: NextAuthOptions = {
 
           let userId = dbUser?.id;
 
-          if (dbUser && dbUser.password) {
+          if (dbUser) {
+            if (!dbUser.password) {
+              throw new Error('Please sign in with another provider.');
+            }
             // user already exists validate password
             const match = await bcrypt.compare(user.password, dbUser.password);
             if (!match) {

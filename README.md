@@ -8,6 +8,9 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 - [ ] think about onboarding process that the user can go through and supply more data
 - [ ] think about user instructions for the app
+- [ ] verify email login with code
+- [ ] no email with google login
+- [ ] sign up can overwrite and take credentials of other users
 
 ### Backlog
 
