@@ -6,14 +6,20 @@ Clone with: `npx create-next-app@latest my-new-next-app -e https://github.com/ra
 
 ### Prio
 
-- [ ] think about onboarding process that the user can go through and supply more data
-- [ ] think about user instructions for the app
-- [ ] verify email login with code
-- [ ] no email with google login
+- [ ] sentry and posthog example for server actions
+- [ ] provide some code structure, rn a user is easily lost and makes this wrong
 - [ ] sign up can overwrite and take credentials of other users
 
 ### Backlog
 
+- [ ] think about user instructions for the app
+- [ ] verify email login with code
+- [ ] no email with google login
+- [ ] custom branding with logo and colors and a tutorial on how to do it
+- [ ] think about how to educate the user
+- [ ] build a notion page that helps build a SaaS from a-z not only technical side but also business, and thinking about gamificaiton / hooked principles, defining key metrics, pricing schemes etc.
+- [ ] seo
+- [ ] think about onboarding process that the user can go through and supply more data
 - [ ] should be able to reach contact and about etc when signed in? -> either duplicate this to both, or find a better solution with the parallel routes in terms of figuring out and then displaying conditionally useSelectedLayoutSegment
 - [ ] build an actual app
 - [ ] think about how to add a blog / docs (should it be a separate app? or just a route? maybe zones?)

@@ -3,13 +3,14 @@ import { getBootstrapData } from '@/components/posthog/PostHog';
 import { PHProvider } from '@/components/posthog/Providers';
 import { Toaster } from '@/components/ui/sonner';
 import { authOptions } from '@/lib/auth/auth';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const font = Inter({ subsets: ['latin'] });
 
 // prevents rendering on the server
 const PostHogPageView = dynamic(
@@ -55,16 +56,27 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <PHProvider bootstrapData={posthogBootstrapData}>
-        <body className={inter.className}>
-          <PostHogPageView />
+      {process.env.NODE_ENV === 'production' ? (
+        <body className={font.className + ' dark'}>
           <NextAuthProvider>
-            {signedIn ? signedInApp : children}
+            <PHProvider bootstrapData={null}>
+              <PostHogPageView />
+              {signedIn ? signedInApp || children : children}
+              {modal}
+              <Analytics />
+              <Toaster />
+            </PHProvider>
+          </NextAuthProvider>
+        </body>
+      ) : (
+        <body className={font.className + ' dark'}>
+          <NextAuthProvider>
+            {signedIn ? signedInApp || children : children}
             {modal}
           </NextAuthProvider>
           <Toaster />
         </body>
-      </PHProvider>
+      )}
     </html>
   );
 }

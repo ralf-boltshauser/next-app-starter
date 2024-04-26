@@ -1,6 +1,7 @@
 import { generateId } from '@/lib/gen-id';
 import { cookies } from 'next/headers';
 import { PostHog } from 'posthog-node';
+import 'server-only';
 
 export async function getBootstrapData() {
   let distinct_id = '';
@@ -17,9 +18,7 @@ export async function getBootstrapData() {
     distinct_id = generateId();
   }
 
-  const client = new PostHog(phProjectAPIKey, {
-    host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-  });
+  const client = serverSideAnalytics();
   const flags = await client.getAllFlags(distinct_id);
   const bootstrap = {
     distinctID: distinct_id,
@@ -28,3 +27,20 @@ export async function getBootstrapData() {
 
   return bootstrap;
 }
+
+function serverSideAnalytics() {
+  const posthogClient = new PostHog(
+    process.env.NEXT_PUBLIC_POSTHOG_KEY as string,
+    {
+      host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+      flushAt: 1,
+      flushInterval: 0,
+    }
+  );
+
+  return posthogClient;
+}
+
+const analyticsServerClient = serverSideAnalytics();
+
+export default analyticsServerClient;
